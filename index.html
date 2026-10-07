@@ -1,4 +1,3 @@
-```html
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -92,7 +91,7 @@ header p {
     border-radius: 12px;
     padding: 25px 15px;
     min-height: 250px;
-    cursor: pointer;
+    cursor: default;
     transition: .3s;
 }
 
@@ -174,7 +173,7 @@ button {
     padding: 13px 22px;
     border-radius: 7px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: default;
     transition: .2s;
     margin: 7px;
 }
@@ -296,7 +295,7 @@ button:hover {
     min-height: 160px;
     border-radius: 5px;
 
-    cursor: pointer;
+    cursor: default;
 
     box-shadow: 5px 7px 15px #000;
 
@@ -502,6 +501,29 @@ footer strong {
     }
 }
 
+
+.play-button {
+    display: block;
+    width: 100%;
+    margin-top: 16px;
+    padding: 13px 18px;
+    border: 0;
+    border-radius: 10px;
+    background: #7c3aed;
+    color: white;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform .15s ease, opacity .15s ease;
+}
+.play-button:hover {
+    transform: translateY(-2px);
+    opacity: .92;
+}
+.play-button:active {
+    transform: translateY(0);
+}
+
 </style>
 </head>
 
@@ -537,7 +559,7 @@ footer strong {
 
     <div class="cases">
 
-        <div class="case" onclick="selectCase(0)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0047
@@ -558,7 +580,7 @@ footer strong {
         </div>
 
 
-        <div class="case" onclick="selectCase(1)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0082
@@ -579,7 +601,7 @@ footer strong {
         </div>
 
 
-        <div class="case" onclick="selectCase(2)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0136
@@ -600,7 +622,7 @@ footer strong {
         </div>
 
 
-        <div class="case" onclick="selectCase(3)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0219
@@ -621,7 +643,7 @@ footer strong {
         </div>
 
 
-        <div class="case" onclick="selectCase(4)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0301
@@ -885,7 +907,7 @@ footer strong {
 
     <br><br>
 
-    <strong>Fait par Kaylee et Shanelle</strong>
+    <strong>Fait par Shanelle et Kaylee</strong>
 
     <br><br>
 
@@ -2022,7 +2044,7 @@ header p {
     border-radius: 12px;
     padding: 25px 15px;
     min-height: 250px;
-    cursor: pointer;
+    cursor: default;
     transition: .3s;
 }
 
@@ -2104,7 +2126,7 @@ button {
     padding: 13px 22px;
     border-radius: 7px;
     font-weight: bold;
-    cursor: pointer;
+    cursor: default;
     transition: .2s;
     margin: 7px;
 }
@@ -2226,7 +2248,7 @@ button:hover {
     min-height: 160px;
     border-radius: 5px;
 
-    cursor: pointer;
+    cursor: default;
 
     box-shadow: 5px 7px 15px #000;
 
@@ -2467,7 +2489,7 @@ footer strong {
 
     <div class="cases">
 
-        <div class="case" onclick="selectCase(0)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0047
@@ -2488,7 +2510,7 @@ footer strong {
         </div>
 
 
-        <div class="case" onclick="selectCase(1)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0082
@@ -2509,7 +2531,7 @@ footer strong {
         </div>
 
 
-        <div class="case" onclick="selectCase(2)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0136
@@ -2530,7 +2552,7 @@ footer strong {
         </div>
 
 
-        <div class="case" onclick="selectCase(3)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0219
@@ -2551,7 +2573,7 @@ footer strong {
         </div>
 
 
-        <div class="case" onclick="selectCase(4)">
+        <div class="case">
 
             <div class="case-number">
                 DOSSIER #0301
@@ -2815,7 +2837,7 @@ footer strong {
 
     <br><br>
 
-    <strong>Fait par Kaylee et Shanelle</strong>
+    <strong>Fait par Shanelle et Kaylee</strong>
 
     <br><br>
 
@@ -3887,36 +3909,4 @@ function backToSelection() {
 
 </body>
 </html>
-```
-
-
-/* =========================================================
-   RETOUR AUX DOSSIERS
-========================================================= */
-
-function backToSelection() {
-
-    clearInterval(minuterie);
-
-    document.getElementById("game").style.display =
-        "none";
-
-    document.getElementById("caseIntro").style.display =
-        "none";
-
-    document.getElementById("selection").style.display =
-        "block";
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
-
-</script>
-
-</body>
-</html>
-```
-
 
