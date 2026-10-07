@@ -4,9 +4,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Les Dossiers de l'Hameçonnage</title>
 
 <style>
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -14,91 +16,95 @@
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial, sans-serif;
     background:
-        radial-gradient(circle at top, #252525 0%, #0b0b0b 55%, #030303 100%);
+        radial-gradient(circle at top, #292929, #090909 70%);
     color: white;
     min-height: 100vh;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header {
-    background: rgba(0,0,0,.92);
+    background: #050505;
     border-bottom: 2px solid #d00000;
-    padding: 25px 15px;
+    padding: 25px;
     text-align: center;
-    box-shadow: 0 0 30px rgba(220,0,0,.25);
+    box-shadow: 0 0 25px rgba(255,0,0,.2);
 }
 
 header h1 {
     color: #e00000;
     font-size: 34px;
     letter-spacing: 4px;
-    text-transform: uppercase;
 }
 
 header p {
     color: #aaa;
     margin-top: 8px;
-    letter-spacing: 2px;
 }
 
-.creators {
-    color: #fff;
+.creator {
     margin-top: 12px;
     font-weight: bold;
 }
 
-.creators span {
+.creator span {
     color: #e00000;
 }
 
-/* MAIN */
+/* ================= CONTAINER ================= */
+
 .container {
-    width: min(1200px, 94%);
-    margin: 30px auto;
+    width: 94%;
+    max-width: 1200px;
+    margin: 35px auto;
 }
 
-.intro {
+/* ================= ACCUEIL ================= */
+
+#selection {
     text-align: center;
-    margin-bottom: 30px;
 }
 
-.intro h2 {
-    font-size: 28px;
+#selection h2 {
+    font-size: 30px;
     margin-bottom: 10px;
 }
 
-.intro p {
+.subtitle {
     color: #aaa;
-    line-height: 1.6;
+    margin-bottom: 30px;
 }
 
-/* CASE SELECTION */
-.case-selection {
+/* ================= CASES ================= */
+
+.cases {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 15px;
 }
 
-.case-card {
-    background: linear-gradient(145deg, #191919, #0c0c0c);
-    border: 1px solid #3a3a3a;
-    border-top: 4px solid #b00000;
+.case {
+    background: linear-gradient(145deg,#191919,#0b0b0b);
+    border: 1px solid #444;
+    border-top: 4px solid #c00000;
     border-radius: 12px;
-    padding: 22px 15px;
-    text-align: center;
+    padding: 25px 15px;
+    min-height: 250px;
     cursor: pointer;
-    transition: .25s;
-    min-height: 230px;
-    position: relative;
-    overflow: hidden;
+    transition: .3s;
 }
 
-.case-card:hover {
+.case:hover {
     transform: translateY(-8px);
     border-color: #e00000;
-    box-shadow: 0 0 30px rgba(220,0,0,.25);
+    box-shadow: 0 0 30px rgba(255,0,0,.3);
+}
+
+.case-icon {
+    font-size: 48px;
+    margin: 15px;
 }
 
 .case-number {
@@ -107,50 +113,76 @@ header p {
     letter-spacing: 2px;
 }
 
-.case-icon {
-    font-size: 45px;
-    margin: 15px 0;
+.case h3 {
+    margin-bottom: 12px;
 }
 
-.case-card h3 {
-    margin-bottom: 10px;
-}
-
-.case-card p {
+.case p {
     color: #999;
-    font-size: 14px;
     line-height: 1.5;
 }
 
-.difficulty {
+.stars {
     color: #e00000;
     margin-top: 15px;
 }
 
-/* INVESTIGATION */
-#investigation {
+/* ================= INTRO DOSSIER ================= */
+
+#caseIntro {
     display: none;
+    text-align: center;
+    background: linear-gradient(145deg,#181818,#090909);
+    border: 1px solid #444;
+    border-top: 4px solid #d00000;
+    border-radius: 15px;
+    padding: 40px;
 }
 
-.back-button {
+#caseIntro h2 {
+    color: #e00000;
+    font-size: 28px;
     margin-bottom: 20px;
 }
 
+#caseIntro p {
+    color: #bbb;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: auto;
+}
+
+.mission {
+    margin: 25px auto;
+    padding: 20px;
+    max-width: 700px;
+    background: #111;
+    border: 1px solid #444;
+    border-radius: 10px;
+}
+
+.mission strong {
+    color: #e00000;
+}
+
+/* ================= BUTTON ================= */
+
 button {
-    border: 1px solid #d00000;
-    background: #700000;
+    background: #780000;
+    border: 1px solid #e00000;
     color: white;
-    padding: 12px 20px;
+    padding: 13px 22px;
     border-radius: 7px;
-    cursor: pointer;
     font-weight: bold;
+    cursor: pointer;
     transition: .2s;
+    margin: 7px;
 }
 
 button:hover {
-    background: #a00000;
+    background: #b00000;
     transform: translateY(-2px);
-    box-shadow: 0 0 15px rgba(220,0,0,.35);
+    box-shadow: 0 0 15px rgba(255,0,0,.3);
 }
 
 .secondary {
@@ -158,21 +190,26 @@ button:hover {
     border-color: #555;
 }
 
+/* ================= GAME ================= */
+
+#game {
+    display: none;
+}
+
 .case-header {
-    background: linear-gradient(145deg,#181818,#0c0c0c);
-    border: 1px solid #333;
+    background: #111;
     border-left: 5px solid #d00000;
-    border-radius: 12px;
+    border-radius: 10px;
     padding: 25px;
     margin-bottom: 20px;
 }
 
 .case-header h2 {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
 }
 
 .case-header p {
-    color: #bbb;
+    color: #aaa;
     line-height: 1.6;
 }
 
@@ -180,13 +217,13 @@ button:hover {
     display: inline-block;
     margin-top: 15px;
     background: #600000;
-    border: 1px solid #e00000;
     padding: 7px 13px;
     border-radius: 20px;
     font-size: 12px;
 }
 
-/* STATS */
+/* ================= STATS ================= */
+
 .stats {
     display: grid;
     grid-template-columns: repeat(4,1fr);
@@ -206,29 +243,42 @@ button:hover {
 .stat strong {
     display: block;
     color: #e00000;
-    font-size: 24px;
+    font-size: 25px;
     margin-top: 5px;
 }
 
-/* BOARD */
+/* ================= TIMER ================= */
+
+.timer {
+    text-align: center;
+    color: #ff5050;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+/* ================= BOARD ================= */
+
 .board {
-    min-height: 450px;
     background-color: #202020;
+
     background-image:
         linear-gradient(#292929 1px, transparent 1px),
         linear-gradient(90deg,#292929 1px,transparent 1px);
+
     background-size: 35px 35px;
+
     border: 2px solid #444;
     border-radius: 15px;
+
     padding: 25px;
-    margin-bottom: 20px;
 }
 
-.board-title {
+.board h2 {
     text-align: center;
     color: #aaa;
     letter-spacing: 3px;
-    margin-bottom: 20px;
+    margin-bottom: 25px;
 }
 
 .evidence-grid {
@@ -237,91 +287,96 @@ button:hover {
     gap: 18px;
 }
 
+/* ================= EVIDENCE ================= */
+
 .evidence {
-    background: #f4f0df;
-    color: #171717;
+    background: #f3efdc;
+    color: #111;
+    padding: 22px;
+    min-height: 160px;
     border-radius: 5px;
-    padding: 20px;
-    min-height: 150px;
+
     cursor: pointer;
-    transform: rotate(-1deg);
-    box-shadow: 4px 7px 15px rgba(0,0,0,.5);
+
+    box-shadow: 5px 7px 15px #000;
+
     transition: .2s;
-    position: relative;
+
+    transform: rotate(-1deg);
 }
 
 .evidence:nth-child(even) {
-    transform: rotate(1.5deg);
+    transform: rotate(1deg);
 }
 
 .evidence:hover {
-    transform: scale(1.04) rotate(0deg);
-    box-shadow: 0 0 25px rgba(255,0,0,.35);
+    transform: scale(1.04) rotate(0);
 }
 
 .evidence h3 {
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+}
+
+.evidence p {
+    color: #333;
 }
 
 .evidence small {
-    color: #555;
-}
-
-.pin {
-    width: 12px;
-    height: 12px;
-    background: #d00000;
-    border-radius: 50%;
-    position: absolute;
-    top: 8px;
-    left: 50%;
-    transform: translateX(-50%);
-    box-shadow: 0 0 8px red;
+    display: block;
+    margin-top: 15px;
+    color: #777;
 }
 
 .found {
     opacity: .55;
-    filter: grayscale(.5);
+    filter: grayscale(.6);
 }
 
-/* BUTTONS */
-.buttons {
-    display: flex;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin: 20px 0;
-}
+/* ================= GAME BUTTONS ================= */
 
-.timer {
+.game-buttons {
     text-align: center;
-    color: #ff4d4d;
-    font-size: 20px;
-    font-weight: bold;
-    margin: 15px;
+    margin: 25px;
 }
 
-/* MODALS */
+/* ================= MODAL ================= */
+
 .modal {
     display: none;
+
     position: fixed;
+
     inset: 0;
-    background: rgba(0,0,0,.88);
-    z-index: 20;
+
+    background: rgba(0,0,0,.9);
+
+    z-index: 50;
+
     justify-content: center;
+
     align-items: center;
+
     padding: 20px;
 }
 
 .modal-content {
-    width: min(680px,100%);
-    max-height: 90vh;
-    overflow-y: auto;
     background: #151515;
-    border: 2px solid #b00000;
-    border-radius: 14px;
-    padding: 28px;
-    box-shadow: 0 0 50px rgba(200,0,0,.3);
+
+    border: 2px solid #c00000;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    width: 95%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    box-shadow: 0 0 50px rgba(255,0,0,.3);
 }
 
 .modal-content h2 {
@@ -332,75 +387,72 @@ button:hover {
 .modal-content p {
     color: #ddd;
     line-height: 1.7;
-    margin-bottom: 18px;
     white-space: pre-line;
+    margin-bottom: 20px;
 }
 
 .choice {
+    display: block;
     width: 100%;
     text-align: left;
-    margin: 7px 0;
-    background: #202020;
-    border: 1px solid #444;
-}
-
-.choice:hover {
-    border-color: #d00000;
+    background: #222;
+    border: 1px solid #555;
+    margin: 8px 0;
 }
 
 .correct {
-    border-color: #00a83b !important;
-    background: #073d1d !important;
+    background: #06451f !important;
+    border-color: #00c853 !important;
 }
 
 .wrong {
-    border-color: #d00000 !important;
-    background: #450808 !important;
+    background: #4b0707 !important;
+    border-color: #e00000 !important;
 }
 
 .feedback {
     margin-top: 15px;
     padding: 15px;
+    background: #0c0c0c;
     border-radius: 8px;
-    background: #101010;
-    border: 1px solid #444;
+    line-height: 1.6;
 }
 
-/* REPORT */
-.report {
+/* ================= REPORT ================= */
+
+#report {
     display: none;
     background: #101010;
-    border: 2px solid #555;
-    border-radius: 14px;
+    border: 2px solid #444;
+    border-radius: 15px;
     padding: 30px;
     margin-top: 25px;
 }
 
-.report h2 {
+#report h2 {
     text-align: center;
     color: #e00000;
     letter-spacing: 3px;
-    margin-bottom: 20px;
 }
 
 .rating {
     text-align: center;
     font-size: 35px;
-    margin: 15px;
+    margin: 20px;
 }
 
-.report p {
+#finalText {
     color: #bbb;
     line-height: 1.7;
-    margin: 12px 0;
+    text-align: center;
 }
 
 .progress {
-    height: 12px;
+    height: 14px;
     background: #292929;
     border-radius: 10px;
     overflow: hidden;
-    margin: 10px 0 20px;
+    margin: 20px 0;
 }
 
 .progress-bar {
@@ -410,21 +462,25 @@ button:hover {
     transition: 1s;
 }
 
-.footer {
+/* ================= FOOTER ================= */
+
+footer {
     text-align: center;
-    padding: 30px;
-    margin-top: 30px;
-    border-top: 1px solid #333;
     color: #777;
+    padding: 35px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
 }
 
-.footer strong {
+footer strong {
     color: #e00000;
 }
 
-/* RESPONSIVE */
+/* ================= MOBILE ================= */
+
 @media(max-width:950px) {
-    .case-selection {
+
+    .cases {
         grid-template-columns: repeat(2,1fr);
     }
 
@@ -434,82 +490,155 @@ button:hover {
 }
 
 @media(max-width:650px) {
+
     header h1 {
-        font-size: 23px;
+        font-size: 22px;
     }
 
-    .case-selection,
+    .cases,
     .evidence-grid,
     .stats {
         grid-template-columns: 1fr;
     }
 }
+
 </style>
 </head>
+
 
 <body>
 
 <header>
+
     <h1>🕵️ LES DOSSIERS DE L'HAMEÇONNAGE</h1>
+
     <p>UNITÉ D'INVESTIGATION CYBERNÉTIQUE</p>
-    <div class="creators">
+
+    <div class="creator">
         Fait par <span>Kaylee et Shanelle</span>
     </div>
+
 </header>
+
 
 <div class="container">
 
-<!-- CASE SELECTION -->
-<section id="caseSelection">
 
-    <div class="intro">
-        <h2>📁 Choisissez votre enquête</h2>
-        <p>
-            Cinq dossiers. Cinq enquêtes. À vous de trouver les indices,
-            analyser les preuves et résoudre chaque affaire.
-        </p>
-    </div>
+<!-- ================= CHOIX DU DOSSIER ================= -->
 
-    <div class="case-selection">
+<section id="selection">
 
-        <div class="case-card" onclick="startCase(0)">
-            <div class="case-number">DOSSIER #0047</div>
+    <h2>📁 CHOISISSEZ UNE ENQUÊTE</h2>
+
+    <p class="subtitle">
+        Sélectionnez un dossier pour commencer votre enquête.
+    </p>
+
+
+    <div class="cases">
+
+        <div class="case" onclick="selectCase(0)">
+
+            <div class="case-number">
+                DOSSIER #0047
+            </div>
+
             <div class="case-icon">📧</div>
+
             <h3>Le courriel urgent</h3>
-            <p>Un message affirme que votre compte est en danger.</p>
-            <div class="difficulty">★★★★☆</div>
+
+            <p>
+                Un message affirme que votre compte est en danger.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
         </div>
 
-        <div class="case-card" onclick="startCase(1)">
-            <div class="case-number">DOSSIER #0082</div>
+
+        <div class="case" onclick="selectCase(1)">
+
+            <div class="case-number">
+                DOSSIER #0082
+            </div>
+
             <div class="case-icon">📦</div>
+
             <h3>La fausse livraison</h3>
-            <p>Un colis inattendu serait bloqué et nécessite une action.</p>
-            <div class="difficulty">★★★☆☆</div>
+
+            <p>
+                Un colis mystérieux serait bloqué.
+            </p>
+
+            <div class="stars">
+                ★★★☆☆
+            </div>
+
         </div>
 
-        <div class="case-card" onclick="startCase(2)">
-            <div class="case-number">DOSSIER #0136</div>
+
+        <div class="case" onclick="selectCase(2)">
+
+            <div class="case-number">
+                DOSSIER #0136
+            </div>
+
             <div class="case-icon">🎮</div>
+
             <h3>Le compte de jeu</h3>
-            <p>Un joueur reçoit une étrange alerte concernant son compte.</p>
-            <div class="difficulty">★★★★☆</div>
+
+            <p>
+                Une alerte prétend que votre compte a été compromis.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
         </div>
 
-        <div class="case-card" onclick="startCase(3)">
-            <div class="case-number">DOSSIER #0219</div>
+
+        <div class="case" onclick="selectCase(3)">
+
+            <div class="case-number">
+                DOSSIER #0219
+            </div>
+
             <div class="case-icon">💼</div>
+
             <h3>La fausse offre d'emploi</h3>
-            <p>Une entreprise propose un emploi qui semble trop beau pour être vrai.</p>
-            <div class="difficulty">★★★★★</div>
+
+            <p>
+                Une offre incroyable pourrait cacher une arnaque.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
         </div>
 
-        <div class="case-card" onclick="startCase(4)">
-            <div class="case-number">DOSSIER #0301</div>
+
+        <div class="case" onclick="selectCase(4)">
+
+            <div class="case-number">
+                DOSSIER #0301
+            </div>
+
             <div class="case-icon">🏦</div>
+
             <h3>L'alerte bancaire</h3>
-            <p>Une prétendue banque demande une vérification urgente.</p>
-            <div class="difficulty">★★★★★</div>
+
+            <p>
+                Une banque demande une vérification urgente.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
         </div>
 
     </div>
@@ -517,20 +646,59 @@ button:hover {
 </section>
 
 
-<!-- INVESTIGATION -->
-<section id="investigation">
+<!-- ================= INTRO DU DOSSIER ================= -->
 
-    <div class="back-button">
-        <button class="secondary" onclick="backToCases()">
-            ← Retour aux dossiers
-        </button>
+<section id="caseIntro">
+
+    <h2 id="introTitle"></h2>
+
+    <p id="introDescription"></p>
+
+    <div class="mission">
+
+        <strong>🎯 VOTRE MISSION</strong>
+
+        <br><br>
+
+        Examinez les preuves une par une.
+
+        Trouvez les signes suspects.
+
+        Évitez les fausses pistes.
+
+        Puis rendez votre verdict.
+
     </div>
+
+    <button onclick="startInvestigation()">
+        🔎 COMMENCER L'ENQUÊTE
+    </button>
+
+    <br>
+
+    <button class="secondary" onclick="backToSelection()">
+        ← Retour aux dossiers
+    </button>
+
+</section>
+
+
+<!-- ================= JEU ================= -->
+
+<section id="game">
 
     <div class="case-header">
-        <h2 id="caseTitle"></h2>
-        <p id="caseDescription"></p>
-        <span class="status">🔴 ENQUÊTE EN COURS</span>
+
+        <h2 id="gameTitle"></h2>
+
+        <p id="gameDescription"></p>
+
+        <span class="status">
+            🔴 ENQUÊTE EN COURS
+        </span>
+
     </div>
+
 
     <div class="stats">
 
@@ -545,7 +713,7 @@ button:hover {
         </div>
 
         <div class="stat">
-            Indices
+            Indices disponibles
             <strong id="hints">3</strong>
         </div>
 
@@ -556,67 +724,87 @@ button:hover {
 
     </div>
 
+
     <div class="timer">
-        ⏱️ Temps restant pour l'enquête
+        ⏱️ Temps restant
     </div>
 
-    <section class="board">
 
-        <h2 class="board-title">🔎 TABLEAU DES PREUVES</h2>
+    <div class="board">
 
-        <div class="evidence-grid" id="evidenceGrid"></div>
+        <h2>
+            🔎 TABLEAU DES PREUVES
+        </h2>
 
-    </section>
+        <div
+            class="evidence-grid"
+            id="evidenceGrid">
+        </div>
 
-    <div class="buttons">
+    </div>
+
+
+    <div class="game-buttons">
 
         <button onclick="useHint()">
-            💡 Demander un indice
+            💡 INDICE
         </button>
 
-        <button onclick="makeConclusion()">
-            🧠 Rendre mon verdict
+        <button onclick="showVerdict()">
+            🧠 RENDRE MON VERDICT
+        </button>
+
+        <button
+            class="secondary"
+            onclick="backToSelection()">
+            📁 AUTRES DOSSIERS
         </button>
 
     </div>
 
-    <section id="report" class="report">
 
-        <h2>🔴 DOSSIER CLASSÉ</h2>
+    <div id="report">
 
-        <div class="rating" id="rating"></div>
+        <h2>
+            🔴 AFFAIRE CLASSÉE
+        </h2>
 
-        <p id="finalMessage"></p>
+        <div
+            class="rating"
+            id="rating">
+        </div>
 
-        <p>
-            <strong>Progression de l'enquête :</strong>
-        </p>
+        <p id="finalText"></p>
 
         <div class="progress">
-            <div class="progress-bar" id="progress"></div>
+
+            <div
+                class="progress-bar"
+                id="progress">
+            </div>
+
         </div>
 
-        <p>
-            Vous avez analysé les preuves de ce dossier.
-            Continuez à enquêter sur les autres affaires pour améliorer
-            vos compétences de détection de l'hameçonnage.
-        </p>
+        <div style="text-align:center">
 
-        <div class="buttons">
-            <button onclick="backToCases()">
-                📁 Choisir une autre affaire
+            <button onclick="backToSelection()">
+                📁 CHOISIR UNE AUTRE ENQUÊTE
             </button>
+
         </div>
 
-    </section>
+    </div>
 
 </section>
 
 </div>
 
 
-<!-- EVIDENCE MODAL -->
-<div class="modal" id="evidenceModal">
+<!-- ================= MODAL PREUVE ================= -->
+
+<div
+    class="modal"
+    id="evidenceModal">
 
     <div class="modal-content">
 
@@ -628,10 +816,14 @@ button:hover {
 
         <div id="feedback"></div>
 
-        <div class="buttons">
-            <button class="secondary" onclick="closeModal()">
-                Fermer la preuve
+        <div style="text-align:center">
+
+            <button
+                class="secondary"
+                onclick="closeEvidence()">
+                FERMER LA PREUVE
             </button>
+
         </div>
 
     </div>
@@ -639,27 +831,47 @@ button:hover {
 </div>
 
 
-<!-- CONCLUSION MODAL -->
-<div class="modal" id="conclusionModal">
+<!-- ================= MODAL VERDICT ================= -->
+
+<div
+    class="modal"
+    id="verdictModal">
 
     <div class="modal-content">
 
-        <h2>🧠 VERDICT DU DÉTECTIVE</h2>
+        <h2>
+            🧠 VERDICT DU DÉTECTIVE
+        </h2>
 
         <p>
-            Après avoir examiné les preuves, quel est votre verdict ?
+            Après avoir examiné les preuves,
+            quel est votre verdict ?
         </p>
 
-        <button class="choice" onclick="finishCase(true)">
+        <button
+            class="choice"
+            onclick="finishCase(true)">
+
             🚨 C'est une tentative d'hameçonnage
+
         </button>
 
-        <button class="choice" onclick="finishCase(false)">
+
+        <button
+            class="choice"
+            onclick="finishCase(false)">
+
             ✅ C'est un message légitime
+
         </button>
 
-        <button class="choice" onclick="finishCase(false)">
+
+        <button
+            class="choice"
+            onclick="finishCase(false)">
+
             🤔 Il n'y a pas assez de preuves
+
         </button>
 
     </div>
@@ -667,87 +879,3044 @@ button:hover {
 </div>
 
 
-<footer class="footer">
+<footer>
+
     🕵️ Les Dossiers de l'Hameçonnage
-    <br>
-    <strong>Fait par Kaylee et Shanelle</strong>
+
     <br><br>
+
+    <strong>Fait par Kaylee et Shanelle</strong>
+
+    <br><br>
+
     Projet éducatif de sensibilisation à la cybersécurité.
+
 </footer>
 
 
 <script>
 
 /* =========================================================
-   LES 5 DOSSIERS
+   DONNÉES DES 5 DOSSIERS
 ========================================================= */
 
-const cases = [
+const dossiers = [
 
 {
-    title: "📁 DOSSIER #0047 — LE COURRIEL URGENT",
+    titre: "📁 DOSSIER #0047 — LE COURRIEL URGENT",
 
     description:
     "Un message prétend que votre compte est en danger et vous demande d'agir immédiatement.",
 
-    evidence: [
+    preuves: [
 
     {
-        title:"📧 Preuve #01 — Le courriel",
-        text:
+        titre: "📧 Preuve #01 — Le courriel",
+
+        texte:
         "Le message affirme : « Votre compte sera suspendu dans 10 minutes. Vérifiez immédiatement votre identité. »",
 
-        question:"Quel est le principal signal d'alarme ?",
+        question:
+        "Quel est le principal signal d'alarme ?",
 
-        answers:[
-            ["Le message utilise la peur et l'urgence.",true],
-            ["Le message contient une date.",false],
-            ["Le message possède un objet.",false]
+        choix: [
+            ["Le message utilise la peur et l'urgence.", true],
+            ["Le message contient une date.", false],
+            ["Le message possède un objet.", false]
         ]
     },
 
     {
-        title:"👤 Preuve #02 — L'expéditeur",
-        text:
+        titre: "👤 Preuve #02 — L'expéditeur",
+
+        texte:
         "Expéditeur : securite@paypaI-support.example\n\nRegardez attentivement le nom du domaine.",
 
-        question:"Que remarquez-vous ?",
+        question:
+        "Que remarquez-vous ?",
 
-        answers:[
-            ["Le domaine semble imiter une véritable organisation.",true],
-            ["L'adresse contient une arobase.",false],
-            ["Le nom commence par une minuscule.",false]
+        choix: [
+            ["Le domaine semble imiter une véritable organisation.", true],
+            ["L'adresse contient une arobase.", false],
+            ["Le nom commence par une minuscule.", false]
         ]
     },
 
     {
-        title:"🔗 Preuve #03 — Le lien",
-        text:
+        titre: "🔗 Preuve #03 — Le lien",
+
+        texte:
         "Le bouton « Vérifier mon compte » mène vers une adresse inconnue.",
 
-        question:"Que devriez-vous faire ?",
+        question:
+        "Que devriez-vous faire ?",
 
-        answers:[
-            ["Vérifier la destination sans cliquer et utiliser le site officiel séparément.",true],
-            ["Cliquer rapidement puisque le message est urgent.",false],
-            ["Entrer son mot de passe pour tester.",false]
+        choix: [
+            ["Vérifier la destination et utiliser le site officiel séparément.", true],
+            ["Cliquer immédiatement.", false],
+            ["Entrer son mot de passe pour tester.", false]
         ]
     },
 
     {
-        title:"📎 Preuve #04 — Pièce jointe",
-        text:
+        titre: "📎 Preuve #04 — Pièce jointe",
+
+        texte:
         "Une pièce jointe inattendue accompagne le message.",
 
-        question:"Quelle est la meilleure réaction ?",
+        question:
+        "Quelle est la meilleure réaction ?",
 
-        answers:[
-            ["Ne pas ouvrir la pièce jointe et vérifier l'expéditeur.",true],
-            ["L'ouvrir immédiatement.",false],
-            ["La transférer à quelqu'un.",false]
+        choix: [
+            ["Ne pas ouvrir la pièce jointe et vérifier l'expéditeur.", true],
+            ["L'ouvrir immédiatement.", false],
+            ["La transférer à quelqu'un.", false]
         ]
     },
 
     {
+        titre: "📝 Preuve #05 — Le langage",
+
+        texte:
+        "« ACTION IMMÉDIATE REQUISE !!! VOTRE COMPTE SERA SUPPRIMÉ !!! »",
+
+        question:
+        "Pourquoi ce langage est-il suspect ?",
+
+        choix: [
+            ["Il tente de provoquer une réaction rapide par la peur.", true],
+            ["Il utilise des majuscules.", false],
+            ["Il contient des points d'exclamation.", false]
+        ]
+    },
+
+    {
+        titre: "🖥️ Preuve #06 — Page de connexion",
+
+        texte:
+        "La page demande immédiatement un nom d'utilisateur et un mot de passe.",
+
+        question:
+        "Quelle action est la plus sûre ?",
+
+        choix: [
+            ["Quitter la page et accéder au service officiel séparément.", true],
+            ["Entrer son mot de passe.", false],
+            ["Essayer un ancien mot de passe.", false]
+        ]
+    }
+
+    ]
+},
+
+
+{
+    titre: "📁 DOSSIER #0082 — LA FAUSSE LIVRAISON",
+
+    description:
+    "Un message indique qu'un colis ne peut pas être livré sans paiement ou vérification.",
+
+    preuves: [
+
+    {
+        titre: "📦 Preuve #01 — Notification",
+
+        texte:
+        "« Votre colis est retenu. Une petite somme doit être payée aujourd'hui. »",
+
+        question:
+        "Quel indice devez-vous remarquer ?",
+
+        choix: [
+            ["Une demande inattendue de paiement accompagnée d'urgence.", true],
+            ["Le message parle d'un colis.", false],
+            ["Il contient un numéro.", false]
+        ]
+    },
+
+    {
+        titre: "🔗 Preuve #02 — Adresse",
+
+        texte:
+        "Le lien semble être celui d'un service de livraison, mais le domaine est inhabituel.",
+
+        question:
+        "Que devriez-vous faire ?",
+
+        choix: [
+            ["Consulter directement le site officiel du service.", true],
+            ["Cliquer immédiatement.", false],
+            ["Entrer une carte bancaire.", false]
+        ]
+    },
+
+    {
+        titre: "📱 Preuve #03 — SMS",
+
+        texte:
+        "Le message arrive alors que vous n'attendez aucun colis.",
+
+        question:
+        "Pourquoi est-ce important ?",
+
+        choix: [
+            ["Un message inattendu doit être vérifié avant toute action.", true],
+            ["Tous les SMS sont dangereux.", false],
+            ["Un colis est toujours une arnaque.", false]
+        ]
+    },
+
+    {
+        titre: "💳 Preuve #04 — Paiement",
+
+        texte:
+        "Le message demande des informations bancaires pour une petite somme.",
+
+        question:
+        "Quelle est la meilleure réaction ?",
+
+        choix: [
+            ["Ne pas fournir les informations et vérifier auprès du transporteur.", true],
+            ["Payer immédiatement.", false],
+            ["Envoyer les informations par SMS.", false]
+        ]
+    },
+
+    {
+        titre: "⏰ Preuve #05 — Compte à rebours",
+
+        texte:
+        "« Vous avez seulement 30 minutes avant que votre colis soit retourné. »",
+
+        question:
+        "Pourquoi cette phrase est-elle suspecte ?",
+
+        choix: [
+            ["Elle crée une pression artificielle.", true],
+            ["Les colis ont parfois des délais.", false],
+            ["Le chiffre 30 est inhabituel.", false]
+        ]
+    },
+
+    {
+        titre: "🔎 Preuve #06 — Vérification",
+
+        texte:
+        "Le numéro de suivi fourni n'existe pas sur le site officiel.",
+
+        question:
+        "Que révèle cette information ?",
+
+        choix: [
+            ["C'est un indice important que le message n'est pas authentique.", true],
+            ["Le site officiel est forcément en panne.", false],
+            ["Il faut cliquer sur le lien.", false]
+        ]
+    }
+
+    ]
+},
+
+
+{
+    titre: "📁 DOSSIER #0136 — LE COMPTE DE JEU",
+
+    description:
+    "Une alerte prétend que votre compte de jeu a été compromis.",
+
+    preuves: [
+
+    {
+        titre: "🎮 Preuve #01 — Alerte",
+
+        texte:
+        "« Une activité inhabituelle a été détectée. Connectez-vous immédiatement. »",
+
+        question:
+        "Quel signal d'alarme voyez-vous ?",
+
+        choix: [
+            ["L'urgence et la menace de fermeture.", true],
+            ["Le message parle d'un jeu.", false],
+            ["Le message est court.", false]
+        ]
+    },
+
+    {
+        titre: "👤 Preuve #02 — Expéditeur",
+
+        texte:
+        "L'adresse ressemble au nom du jeu mais contient plusieurs caractères inhabituels.",
+
+        question:
+        "Que devez-vous vérifier ?",
+
+        choix: [
+            ["Le domaine exact de l'expéditeur.", true],
+            ["La couleur du logo.", false],
+            ["Le nombre de mots.", false]
+        ]
+    },
+
+    {
+        titre: "🔐 Preuve #03 — Mot de passe",
+
+        texte:
+        "La page demande votre mot de passe pour confirmer votre identité.",
+
+        question:
+        "Que faire ?",
+
+        choix: [
+            ["Ne pas saisir le mot de passe et vérifier le compte officiellement.", true],
+            ["Utiliser son mot de passe habituel.", false],
+            ["Essayer plusieurs mots de passe.", false]
+        ]
+    },
+
+    {
+        titre: "🎁 Preuve #04 — Récompense",
+
+        texte:
+        "Le message promet une récompense gratuite si vous vous connectez.",
+
+        question:
+        "Pourquoi cela peut-il être suspect ?",
+
+        choix: [
+            ["Une récompense peut servir à attirer rapidement une victime.", true],
+            ["Les récompenses sont toujours fausses.", false],
+            ["Les jeux ne proposent jamais de récompenses.", false]
+        ]
+    },
+
+    {
+        titre: "🔗 Preuve #05 — Lien",
+
+        texte:
+        "Le lien ne correspond pas exactement au domaine officiel du jeu.",
+
+        question:
+        "Quel est le meilleur choix ?",
+
+        choix: [
+            ["Ne pas cliquer et ouvrir le site officiel manuellement.", true],
+            ["Cliquer pour voir où il mène.", false],
+            ["Partager le lien.", false]
+        ]
+    },
+
+    {
+        titre: "🧩 Preuve #06 — Confirmation",
+
+        texte:
+        "Aucune alerte similaire n'apparaît dans l'application officielle.",
+
+        question:
+        "Qu'est-ce que cela suggère ?",
+
+        choix: [
+            ["Le message pourrait être une tentative d'hameçonnage.", true],
+            ["L'application officielle est incorrecte.", false],
+            ["Il faut répondre au message.", false]
+        ]
+    }
+
+    ]
+},
+
+
+{
+    titre: "📁 DOSSIER #0219 — LA FAUSSE OFFRE D'EMPLOI",
+
+    description:
+    "Une entreprise propose un emploi étonnamment avantageux.",
+
+    preuves: [
+
+    {
+        titre: "💼 Preuve #01 — L'offre",
+
+        texte:
+        "L'offre promet un salaire très élevé pour quelques heures de travail sans entretien.",
+
+        question:
+        "Quel élément mérite votre attention ?",
+
+        choix: [
+            ["Une offre exceptionnellement avantageuse sans processus normal.", true],
+            ["Le salaire est indiqué.", false],
+            ["L'offre est en français.", false]
+        ]
+    },
+
+    {
+        titre: "📧 Preuve #02 — Adresse",
+
+        texte:
+        "Le recruteur utilise une adresse gratuite qui ne correspond pas à l'entreprise.",
+
+        question:
+        "Que faut-il vérifier ?",
+
+        choix: [
+            ["Le domaine officiel de l'entreprise et l'identité du recruteur.", true],
+            ["La longueur de l'adresse.", false],
+            ["La couleur du logo.", false]
+        ]
+    },
+
+    {
+        titre: "💰 Preuve #03 — Paiement",
+
+        texte:
+        "Le candidat doit payer des frais avant de commencer.",
+
+        question:
+        "Pourquoi est-ce un signal d'alarme ?",
+
+        choix: [
+            ["Une demande de paiement inattendue doit être vérifiée.", true],
+            ["Toutes les entreprises demandent des frais.", false],
+            ["Il faut payer pour obtenir un meilleur salaire.", false]
+        ]
+    },
+
+    {
+        titre: "🪪 Preuve #04 — Informations",
+
+        texte:
+        "Le recruteur demande des documents personnels avant même un entretien.",
+
+        question:
+        "Que devriez-vous faire ?",
+
+        choix: [
+            ["Vérifier l'entreprise et le recruteur avant de transmettre des informations.", true],
+            ["Envoyer immédiatement les documents.", false],
+            ["Publier les documents.", false]
+        ]
+    },
+
+    {
+        titre: "⏰ Preuve #05 — Pression",
+
+        texte:
+        "« Vous devez accepter dans les 15 minutes. »",
+
+        question:
+        "Quel est le problème ?",
+
+        choix: [
+            ["La pression empêche de vérifier correctement l'offre.", true],
+            ["Les emplois ont parfois des délais.", false],
+            ["Le nombre 15 est suspect.", false]
+        ]
+    },
+
+    {
+        titre: "🔎 Preuve #06 — Vérification",
+
+        texte:
+        "L'offre n'apparaît nulle part sur les pages officielles de l'entreprise.",
+
+        question:
+        "Que concluez-vous ?",
+
+        choix: [
+            ["L'offre doit être considérée comme très suspecte.", true],
+            ["Il faut accepter immédiatement.", false],
+            ["L'entreprise a forcément supprimé l'offre.", false]
+        ]
+    }
+
+    ]
+},
+
+
+{
+    titre: "📁 DOSSIER #0301 — L'ALERTE BANCAIRE",
+
+    description:
+    "Une prétendue banque informe un client d'une activité inhabituelle.",
+
+    preuves: [
+
+    {
+        titre: "🏦 Preuve #01 — Alerte",
+
+        texte:
+        "« Une transaction suspecte a été détectée. Cliquez ici dans les 10 minutes. »",
+
+        question:
+        "Quel est le principal signal d'alarme ?",
+
+        choix: [
+            ["L'urgence et la demande de cliquer.", true],
+            ["Le message parle d'une transaction.", false],
+            ["La banque utilise le mot sécurité.", false]
+        ]
+    },
+
+    {
+        titre: "📧 Preuve #02 — Expéditeur",
+
+        texte:
+        "Le nom affiché semble être celui d'une banque, mais l'adresse réelle utilise un autre domaine.",
+
+        question:
+        "Que faut-il regarder ?",
+
+        choix: [
+            ["L'adresse réelle de l'expéditeur.", true],
+            ["Seulement le nom affiché.", false],
+            ["Le logo.", false]
+        ]
+    },
+
+    {
+        titre: "🔗 Preuve #03 — Connexion",
+
+        texte:
+        "Le bouton ouvre une page de connexion inconnue.",
+
+        question:
+        "Quelle est la meilleure action ?",
+
+        choix: [
+            ["Ne pas utiliser le lien et contacter la banque officiellement.", true],
+            ["Se connecter immédiatement.", false],
+            ["Entrer son numéro de carte.", false]
+        ]
+    },
+
+    {
+        titre: "🔐 Preuve #04 — Code",
+
+        texte:
+        "La page demande un code de sécurité reçu par SMS.",
+
+        question:
+        "Que devez-vous faire ?",
+
+        choix: [
+            ["Ne pas fournir le code à une page inattendue.", true],
+            ["Envoyer le code.", false],
+            ["Publier le code.", false]
+        ]
+    },
+
+    {
+        titre: "📞 Preuve #05 — Téléphone",
+
+        texte:
+        "Le message fournit un numéro pour régler immédiatement le problème.",
+
+        question:
+        "Comment vérifier ?",
+
+        choix: [
+            ["Utiliser le numéro officiel de la banque.", true],
+            ["Appeler immédiatement le numéro du message.", false],
+            ["Répondre au message.", false]
+        ]
+    },
+
+    {
+        titre: "🧠 Preuve #06 — Vérification",
+
+        texte:
+        "L'application bancaire officielle ne montre aucune alerte similaire.",
+
+        question:
+        "Que suggère cette preuve ?",
+
+        choix: [
+            ["Le message est probablement une tentative d'hameçonnage.", true],
+            ["L'application est forcément fausse.", false],
+            ["Il faut cliquer.", false]
+        ]
+    }
+
+    ]
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES DU JEU
+========================================================= */
+
+let dossierActuel = null;
+
+let score = 0;
+
+let indicesTrouves = 0;
+
+let indicesRestants = 3;
+
+let preuveActuelle = null;
+
+let temps = 300;
+
+let jeuTermine = false;
+
+let minuterie;
+
+
+/* =========================================================
+   CHOISIR UN DOSSIER
+========================================================= */
+
+function selectCase(index) {
+
+    dossierActuel = dossiers[index];
+
+    document.getElementById("selection").style.display = "none";
+
+    document.getElementById("caseIntro").style.display = "block";
+
+    document.getElementById("introTitle").textContent =
+        dossierActuel.titre;
+
+    document.getElementById("introDescription").textContent =
+        dossierActuel.description;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================================================
+   COMMENCER L'ENQUÊTE
+========================================================= */
+
+function startInvestigation() {
+
+    document.getElementById("caseIntro").style.display = "none";
+
+    document.getElementById("game").style.display = "block";
+
+    document.getElementById("gameTitle").textContent =
+        dossierActuel.titre;
+
+    document.getElementById("gameDescription").textContent =
+        dossierActuel.description;
+
+    score = 0;
+
+    indicesTrouves = 0;
+
+    indicesRestants = 3;
+
+    temps = 300;
+
+    jeuTermine = false;
+
+    document.getElementById("score").textContent = "0";
+
+    document.getElementById("found").textContent = "0/6";
+
+    document.getElementById("hints").textContent = "3";
+
+    document.getElementById("time").textContent = "05:00";
+
+    document.getElementById("report").style.display = "none";
+
+    construirePreuves();
+
+    clearInterval(minuterie);
+
+    minuterie = setInterval(compteur,1000);
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================================================
+   CONSTRUIRE LES CARTES
+========================================================= */
+
+function construirePreuves() {
+
+    const grille =
+        document.getElementById("evidenceGrid");
+
+    grille.innerHTML = "";
+
+    dossierActuel.preuves.forEach((preuve,index) => {
+
+        const carte =
+            document.createElement("div");
+
+        carte.className = "evidence";
+
+        carte.id = "preuve-" + index;
+
+        carte.innerHTML = `
+
+            <h3>${preuve.titre}</h3>
+
+            <p>
+                🔍 Cliquez pour examiner cette preuve.
+            </p>
+
+            <small>
+                OUVRIR LE DOSSIER
+            </small>
+
+        `;
+
+        carte.onclick = function() {
+            ouvrirPreuve(index);
+        };
+
+        grille.appendChild(carte);
+    });
+}
+
+
+/* =========================================================
+   OUVRIR UNE PREUVE
+========================================================= */
+
+function ouvrirPreuve(index) {
+
+    preuveActuelle = index;
+
+    const preuve =
+        dossierActuel.preuves[index];
+
+    document.getElementById("modalTitle").textContent =
+        preuve.titre;
+
+    document.getElementById("modalText").textContent =
+        preuve.texte +
+        "\n\n" +
+        preuve.question;
+
+    document.getElementById("feedback").innerHTML = "";
+
+    const choix =
+        document.getElementById("choices");
+
+    choix.innerHTML = "";
+
+    preuve.choix.forEach((option) => {
+
+        const bouton =
+            document.createElement("button");
+
+        bouton.className = "choice";
+
+        bouton.textContent = option[0];
+
+        bouton.onclick = function() {
+
+            verifierReponse(
+                bouton,
+                option[1]
+            );
+
+        };
+
+        choix.appendChild(bouton);
+
+    });
+
+    document.getElementById("evidenceModal").style.display =
+        "flex";
+}
+
+
+/* =========================================================
+   VÉRIFIER LA RÉPONSE
+========================================================= */
+
+function verifierReponse(bouton,bonneReponse) {
+
+    const boutons =
+        document.querySelectorAll(".choice");
+
+    boutons.forEach(b => {
+        b.disabled = true;
+    });
+
+
+    if(bonneReponse) {
+
+        bouton.classList.add("correct");
+
+        const carte =
+            document.getElementById(
+                "preuve-" + preuveActuelle
+            );
+
+        if(!carte.classList.contains("found")) {
+
+            carte.classList.add("found");
+
+            indicesTrouves++;
+
+            score += 100;
+
+            document.getElementById("found").textContent =
+                indicesTrouves + "/6";
+
+            document.getElementById("score").textContent =
+                score;
+        }
+
+
+        document.getElementById("feedback").innerHTML = `
+
+            <div class="feedback">
+
+                🟢 <strong>INDICE CONFIRMÉ !</strong>
+
+                <br><br>
+
+                Excellent travail, détective.
+                Vous avez trouvé un élément important
+                dans cette enquête.
+
+            </div>
+        `;
+
+    }
+
+    else {
+
+        bouton.classList.add("wrong");
+
+        score = Math.max(0,score - 25);
+
+        document.getElementById("score").textContent =
+            score;
+
+        document.getElementById("feedback").innerHTML = `
+
+            <div class="feedback">
+
+                🔴 <strong>FAUSSE PISTE !</strong>
+
+                <br><br>
+
+                Ce n'est pas le meilleur indice.
+                Examinez les détails plus attentivement.
+
+            </div>
+        `;
+    }
+}
+
+
+/* =========================================================
+   FERMER LA PREUVE
+========================================================= */
+
+function closeEvidence() {
+
+    document.getElementById("evidenceModal").style.display =
+        "none";
+}
+
+
+/* =========================================================
+   INDICES
+========================================================= */
+
+function useHint() {
+
+    if(indicesRestants <= 0) {
+
+        alert(
+            "❌ Vous n'avez plus d'indices disponibles."
+        );
+
+        return;
+    }
+
+    indicesRestants--;
+
+    document.getElementById("hints").textContent =
+        indicesRestants;
+
+
+    const conseils = [
+
+        "Vérifiez attentivement l'adresse de l'expéditeur.",
+
+        "Méfiez-vous des messages qui créent un sentiment d'urgence.",
+
+        "Ne cliquez pas sur un lien inattendu. Vérifiez toujours le service officiellement."
+
+    ];
+
+
+    alert(
+        "💡 INDICE DU DÉTECTIVE\n\n" +
+        conseils[2 - indicesRestants]
+    );
+}
+
+
+/* =========================================================
+   COMPTEUR
+========================================================= */
+
+function compteur() {
+
+    if(jeuTermine) return;
+
+    temps--;
+
+    const minutes =
+        Math.floor(temps / 60);
+
+    const secondes =
+        temps % 60;
+
+    document.getElementById("time").textContent =
+        String(minutes).padStart(2,"0") +
+        ":" +
+        String(secondes).padStart(2,"0");
+
+
+    if(temps <= 0) {
+
+        clearInterval(minuterie);
+
+        alert(
+            "⏰ TEMPS ÉCOULÉ !\n\n" +
+            "Vous pouvez toujours terminer votre enquête."
+        );
+    }
+}
+
+
+/* =========================================================
+   VERDICT
+========================================================= */
+
+function showVerdict() {
+
+    if(indicesTrouves < 3) {
+
+        alert(
+
+            "🔎 Vous n'avez pas encore assez d'indices.\n\n" +
+
+            "Examinez au moins 3 preuves avant de rendre votre verdict."
+
+        );
+
+        return;
+    }
+
+    document.getElementById("verdictModal").style.display =
+        "flex";
+}
+
+
+/* =========================================================
+   TERMINER L'AFFAIRE
+========================================================= */
+
+function finishCase(bonneConclusion) {
+
+    jeuTermine = true;
+
+    clearInterval(minuterie);
+
+    document.getElementById("verdictModal").style.display =
+        "none";
+
+
+    let etoiles;
+
+    let message;
+
+
+    if(bonneConclusion && score >= 500) {
+
+        etoiles = "★★★★★";
+
+        message =
+            "🕵️‍♀️ DÉTECTIVE EXPERT ! " +
+            "Vous avez brillamment analysé les preuves " +
+            "et identifié la tentative d'hameçonnage.";
+
+    }
+
+    else if(bonneConclusion && score >= 300) {
+
+        etoiles = "★★★★☆";
+
+        message =
+            "🔎 DÉTECTIVE CONFIRMÉ ! " +
+            "Très bon travail. Vous avez trouvé plusieurs " +
+            "indices importants.";
+
+    }
+
+    else if(bonneConclusion) {
+
+        etoiles = "★★★☆☆";
+
+        message =
+            "🕵️ DÉTECTIVE JUNIOR ! " +
+            "Vous avez résolu l'affaire. Continuez à pratiquer.";
+
+    }
+
+    else {
+
+        etoiles = "★★☆☆☆";
+
+        message =
+            "📁 AFFAIRE À RÉEXAMINER. " +
+            "Les indices indiquaient une tentative d'hameçonnage.";
+    }
+
+
+    document.getElementById("rating").textContent =
+        etoiles;
+
+
+    document.getElementById("finalText").textContent =
+
+        message +
+
+        " Votre score final est de " +
+
+        score +
+
+        " points.";
+
+
+    const pourcentage =
+        Math.min(
+            100,
+            Math.round(
+                (score / 600) * 100
+            )
+        );
+
+
+    document.getElementById("report").style.display =
+        "block";
+
+
+    setTimeout(function() {
+
+        document.getElementById("progress").style.width =
+            pourcentage + "%";
+
+    },300);
+
+
+    document.getElementById("report").scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+}
+```html
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Les Dossiers de l'Hameçonnage</title>
+
+<style>
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background:
+        radial-gradient(circle at top, #292929, #090909 70%);
+    color: white;
+    min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    background: #050505;
+    border-bottom: 2px solid #d00000;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 0 25px rgba(255,0,0,.2);
+}
+
+header h1 {
+    color: #e00000;
+    font-size: 34px;
+    letter-spacing: 4px;
+}
+
+header p {
+    color: #aaa;
+    margin-top: 8px;
+}
+
+.creator {
+    margin-top: 12px;
+    font-weight: bold;
+}
+
+.creator span {
+    color: #e00000;
+}
+
+/* ================= CONTAINER ================= */
+
+.container {
+    width: 94%;
+    max-width: 1200px;
+    margin: 35px auto;
+}
+
+/* ================= ACCUEIL ================= */
+
+#selection {
+    text-align: center;
+}
+
+#selection h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    color: #aaa;
+    margin-bottom: 30px;
+}
+
+/* ================= CASES ================= */
+
+.cases {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
+
+.case {
+    background: linear-gradient(145deg,#191919,#0b0b0b);
+    border: 1px solid #444;
+    border-top: 4px solid #c00000;
+    border-radius: 12px;
+    padding: 25px 15px;
+    min-height: 250px;
+    cursor: pointer;
+    transition: .3s;
+}
+
+.case:hover {
+    transform: translateY(-8px);
+    border-color: #e00000;
+    box-shadow: 0 0 30px rgba(255,0,0,.3);
+}
+
+.case-icon {
+    font-size: 48px;
+    margin: 15px;
+}
+
+.case-number {
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.case h3 {
+    margin-bottom: 12px;
+}
+
+.case p {
+    color: #999;
+    line-height: 1.5;
+}
+
+.stars {
+    color: #e00000;
+    margin-top: 15px;
+}
+
+/* ================= INTRO DOSSIER ================= */
+
+#caseIntro {
+    display: none;
+    text-align: center;
+    background: linear-gradient(145deg,#181818,#090909);
+    border: 1px solid #444;
+    border-top: 4px solid #d00000;
+    border-radius: 15px;
+    padding: 40px;
+}
+
+#caseIntro h2 {
+    color: #e00000;
+    font-size: 28px;
+    margin-bottom: 20px;
+}
+
+#caseIntro p {
+    color: #bbb;
+    line-height: 1.7;
+    max-width: 750px;
+    margin: auto;
+}
+
+.mission {
+    margin: 25px auto;
+    padding: 20px;
+    max-width: 700px;
+    background: #111;
+    border: 1px solid #444;
+    border-radius: 10px;
+}
+
+.mission strong {
+    color: #e00000;
+}
+
+/* ================= BUTTON ================= */
+
+button {
+    background: #780000;
+    border: 1px solid #e00000;
+    color: white;
+    padding: 13px 22px;
+    border-radius: 7px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .2s;
+    margin: 7px;
+}
+
+button:hover {
+    background: #b00000;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(255,0,0,.3);
+}
+
+.secondary {
+    background: #181818;
+    border-color: #555;
+}
+
+/* ================= GAME ================= */
+
+#game {
+    display: none;
+}
+
+.case-header {
+    background: #111;
+    border-left: 5px solid #d00000;
+    border-radius: 10px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.case-header h2 {
+    margin-bottom: 10px;
+}
+
+.case-header p {
+    color: #aaa;
+    line-height: 1.6;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 15px;
+    background: #600000;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* ================= STATS ================= */
+
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.stat {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    color: #999;
+}
+
+.stat strong {
+    display: block;
+    color: #e00000;
+    font-size: 25px;
+    margin-top: 5px;
+}
+
+/* ================= TIMER ================= */
+
+.timer {
+    text-align: center;
+    color: #ff5050;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+/* ================= BOARD ================= */
+
+.board {
+    background-color: #202020;
+
+    background-image:
+        linear-gradient(#292929 1px, transparent 1px),
+        linear-gradient(90deg,#292929 1px,transparent 1px);
+
+    background-size: 35px 35px;
+
+    border: 2px solid #444;
+    border-radius: 15px;
+
+    padding: 25px;
+}
+
+.board h2 {
+    text-align: center;
+    color: #aaa;
+    letter-spacing: 3px;
+    margin-bottom: 25px;
+}
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+/* ================= EVIDENCE ================= */
+
+.evidence {
+    background: #f3efdc;
+    color: #111;
+    padding: 22px;
+    min-height: 160px;
+    border-radius: 5px;
+
+    cursor: pointer;
+
+    box-shadow: 5px 7px 15px #000;
+
+    transition: .2s;
+
+    transform: rotate(-1deg);
+}
+
+.evidence:nth-child(even) {
+    transform: rotate(1deg);
+}
+
+.evidence:hover {
+    transform: scale(1.04) rotate(0);
+}
+
+.evidence h3 {
+    margin-bottom: 12px;
+}
+
+.evidence p {
+    color: #333;
+}
+
+.evidence small {
+    display: block;
+    margin-top: 15px;
+    color: #777;
+}
+
+.found {
+    opacity: .55;
+    filter: grayscale(.6);
+}
+
+/* ================= GAME BUTTONS ================= */
+
+.game-buttons {
+    text-align: center;
+    margin: 25px;
+}
+
+/* ================= MODAL ================= */
+
+.modal {
+    display: none;
+
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(0,0,0,.9);
+
+    z-index: 50;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+.modal-content {
+    background: #151515;
+
+    border: 2px solid #c00000;
+
+    border-radius: 15px;
+
+    padding: 30px;
+
+    width: 95%;
+
+    max-width: 650px;
+
+    max-height: 90vh;
+
+    overflow-y: auto;
+
+    box-shadow: 0 0 50px rgba(255,0,0,.3);
+}
+
+.modal-content h2 {
+    color: #e00000;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #ddd;
+    line-height: 1.7;
+    white-space: pre-line;
+    margin-bottom: 20px;
+}
+
+.choice {
+    display: block;
+    width: 100%;
+    text-align: left;
+    background: #222;
+    border: 1px solid #555;
+    margin: 8px 0;
+}
+
+.correct {
+    background: #06451f !important;
+    border-color: #00c853 !important;
+}
+
+.wrong {
+    background: #4b0707 !important;
+    border-color: #e00000 !important;
+}
+
+.feedback {
+    margin-top: 15px;
+    padding: 15px;
+    background: #0c0c0c;
+    border-radius: 8px;
+    line-height: 1.6;
+}
+
+/* ================= REPORT ================= */
+
+#report {
+    display: none;
+    background: #101010;
+    border: 2px solid #444;
+    border-radius: 15px;
+    padding: 30px;
+    margin-top: 25px;
+}
+
+#report h2 {
+    text-align: center;
+    color: #e00000;
+    letter-spacing: 3px;
+}
+
+.rating {
+    text-align: center;
+    font-size: 35px;
+    margin: 20px;
+}
+
+#finalText {
+    color: #bbb;
+    line-height: 1.7;
+    text-align: center;
+}
+
+.progress {
+    height: 14px;
+    background: #292929;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #d00000;
+    width: 0%;
+    transition: 1s;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    text-align: center;
+    color: #777;
+    padding: 35px;
+    margin-top: 40px;
+    border-top: 1px solid #333;
+}
+
+footer strong {
+    color: #e00000;
+}
+
+/* ================= MOBILE ================= */
+
+@media(max-width:950px) {
+
+    .cases {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .evidence-grid {
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px) {
+
+    header h1 {
+        font-size: 22px;
+    }
+
+    .cases,
+    .evidence-grid,
+    .stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+    <h1>🕵️ LES DOSSIERS DE L'HAMEÇONNAGE</h1>
+
+    <p>UNITÉ D'INVESTIGATION CYBERNÉTIQUE</p>
+
+    <div class="creator">
+        Fait par <span>Kaylee et Shanelle</span>
+    </div>
+
+</header>
+
+
+<div class="container">
+
+
+<!-- ================= CHOIX DU DOSSIER ================= -->
+
+<section id="selection">
+
+    <h2>📁 CHOISISSEZ UNE ENQUÊTE</h2>
+
+    <p class="subtitle">
+        Sélectionnez un dossier pour commencer votre enquête.
+    </p>
+
+
+    <div class="cases">
+
+        <div class="case" onclick="selectCase(0)">
+
+            <div class="case-number">
+                DOSSIER #0047
+            </div>
+
+            <div class="case-icon">📧</div>
+
+            <h3>Le courriel urgent</h3>
+
+            <p>
+                Un message affirme que votre compte est en danger.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
+        </div>
+
+
+        <div class="case" onclick="selectCase(1)">
+
+            <div class="case-number">
+                DOSSIER #0082
+            </div>
+
+            <div class="case-icon">📦</div>
+
+            <h3>La fausse livraison</h3>
+
+            <p>
+                Un colis mystérieux serait bloqué.
+            </p>
+
+            <div class="stars">
+                ★★★☆☆
+            </div>
+
+        </div>
+
+
+        <div class="case" onclick="selectCase(2)">
+
+            <div class="case-number">
+                DOSSIER #0136
+            </div>
+
+            <div class="case-icon">🎮</div>
+
+            <h3>Le compte de jeu</h3>
+
+            <p>
+                Une alerte prétend que votre compte a été compromis.
+            </p>
+
+            <div class="stars">
+                ★★★★☆
+            </div>
+
+        </div>
+
+
+        <div class="case" onclick="selectCase(3)">
+
+            <div class="case-number">
+                DOSSIER #0219
+            </div>
+
+            <div class="case-icon">💼</div>
+
+            <h3>La fausse offre d'emploi</h3>
+
+            <p>
+                Une offre incroyable pourrait cacher une arnaque.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+        </div>
+
+
+        <div class="case" onclick="selectCase(4)">
+
+            <div class="case-number">
+                DOSSIER #0301
+            </div>
+
+            <div class="case-icon">🏦</div>
+
+            <h3>L'alerte bancaire</h3>
+
+            <p>
+                Une banque demande une vérification urgente.
+            </p>
+
+            <div class="stars">
+                ★★★★★
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= INTRO DU DOSSIER ================= -->
+
+<section id="caseIntro">
+
+    <h2 id="introTitle"></h2>
+
+    <p id="introDescription"></p>
+
+    <div class="mission">
+
+        <strong>🎯 VOTRE MISSION</strong>
+
+        <br><br>
+
+        Examinez les preuves une par une.
+
+        Trouvez les signes suspects.
+
+        Évitez les fausses pistes.
+
+        Puis rendez votre verdict.
+
+    </div>
+
+    <button onclick="startInvestigation()">
+        🔎 COMMENCER L'ENQUÊTE
+    </button>
+
+    <br>
+
+    <button class="secondary" onclick="backToSelection()">
+        ← Retour aux dossiers
+    </button>
+
+</section>
+
+
+<!-- ================= JEU ================= -->
+
+<section id="game">
+
+    <div class="case-header">
+
+        <h2 id="gameTitle"></h2>
+
+        <p id="gameDescription"></p>
+
+        <span class="status">
+            🔴 ENQUÊTE EN COURS
+        </span>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat">
+            Indices trouvés
+            <strong id="found">0/6</strong>
+        </div>
+
+        <div class="stat">
+            Score
+            <strong id="score">0</strong>
+        </div>
+
+        <div class="stat">
+            Indices disponibles
+            <strong id="hints">3</strong>
+        </div>
+
+        <div class="stat">
+            Temps
+            <strong id="time">05:00</strong>
+        </div>
+
+    </div>
+
+
+    <div class="timer">
+        ⏱️ Temps restant
+    </div>
+
+
+    <div class="board">
+
+        <h2>
+            🔎 TABLEAU DES PREUVES
+        </h2>
+
+        <div
+            class="evidence-grid"
+            id="evidenceGrid">
+        </div>
+
+    </div>
+
+
+    <div class="game-buttons">
+
+        <button onclick="useHint()">
+            💡 INDICE
+        </button>
+
+        <button onclick="showVerdict()">
+            🧠 RENDRE MON VERDICT
+        </button>
+
+        <button
+            class="secondary"
+            onclick="backToSelection()">
+            📁 AUTRES DOSSIERS
+        </button>
+
+    </div>
+
+
+    <div id="report">
+
+        <h2>
+            🔴 AFFAIRE CLASSÉE
+        </h2>
+
+        <div
+            class="rating"
+            id="rating">
+        </div>
+
+        <p id="finalText"></p>
+
+        <div class="progress">
+
+            <div
+                class="progress-bar"
+                id="progress">
+            </div>
+
+        </div>
+
+        <div style="text-align:center">
+
+            <button onclick="backToSelection()">
+                📁 CHOISIR UNE AUTRE ENQUÊTE
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+</div>
+
+
+<!-- ================= MODAL PREUVE ================= -->
+
+<div
+    class="modal"
+    id="evidenceModal">
+
+    <div class="modal-content">
+
+        <h2 id="modalTitle"></h2>
+
+        <p id="modalText"></p>
+
+        <div id="choices"></div>
+
+        <div id="feedback"></div>
+
+        <div style="text-align:center">
+
+            <button
+                class="secondary"
+                onclick="closeEvidence()">
+                FERMER LA PREUVE
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= MODAL VERDICT ================= -->
+
+<div
+    class="modal"
+    id="verdictModal">
+
+    <div class="modal-content">
+
+        <h2>
+            🧠 VERDICT DU DÉTECTIVE
+        </h2>
+
+        <p>
+            Après avoir examiné les preuves,
+            quel est votre verdict ?
+        </p>
+
+        <button
+            class="choice"
+            onclick="finishCase(true)">
+
+            🚨 C'est une tentative d'hameçonnage
+
+        </button>
+
+
+        <button
+            class="choice"
+            onclick="finishCase(false)">
+
+            ✅ C'est un message légitime
+
+        </button>
+
+
+        <button
+            class="choice"
+            onclick="finishCase(false)">
+
+            🤔 Il n'y a pas assez de preuves
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<footer>
+
+    🕵️ Les Dossiers de l'Hameçonnage
+
+    <br><br>
+
+    <strong>Fait par Kaylee et Shanelle</strong>
+
+    <br><br>
+
+    Projet éducatif de sensibilisation à la cybersécurité.
+
+</footer>
+
+
+<script>
+
+/* =========================================================
+   DONNÉES DES 5 DOSSIERS
+========================================================= */
+
+const dossiers = [
+
+{
+    titre: "📁 DOSSIER #0047 — LE COURRIEL URGENT",
+
+    description:
+    "Un message prétend que votre compte est en danger et vous demande d'agir immédiatement.",
+
+    preuves: [
+
+    {
+        titre: "📧 Preuve #01 — Le courriel",
+
+        texte:
+        "Le message affirme : « Votre compte sera suspendu dans 10 minutes. Vérifiez immédiatement votre identité. »",
+
+        question:
+        "Quel est le principal signal d'alarme ?",
+
+        choix: [
+            ["Le message utilise la peur et l'urgence.", true],
+            ["Le message contient une date.", false],
+            ["Le message possède un objet.", false]
+        ]
+    },
+
+    {
+        titre: "👤 Preuve #02 — L'expéditeur",
+
+        texte:
+        "Expéditeur : securite@paypaI-support.example\n\nRegardez attentivement le nom du domaine.",
+
+        question:
+        "Que remarquez-vous ?",
+
+        choix: [
+            ["Le domaine semble imiter une véritable organisation.", true],
+            ["L'adresse contient une arobase.", false],
+            ["Le nom commence par une minuscule.", false]
+        ]
+    },
+
+    {
+        titre: "🔗 Preuve #03 — Le lien",
+
+        texte:
+        "Le bouton « Vérifier mon compte » mène vers une adresse inconnue.",
+
+        question:
+        "Que devriez-vous faire ?",
+
+        choix: [
+            ["Vérifier la destination et utiliser le site officiel séparément.", true],
+            ["Cliquer immédiatement.", false],
+            ["Entrer son mot de passe pour tester.", false]
+        ]
+    },
+
+    {
+        titre: "📎 Preuve #04 — Pièce jointe",
+
+        texte:
+        "Une pièce jointe inattendue accompagne le message.",
+
+        question:
+        "Quelle est la meilleure réaction ?",
+
+        choix: [
+            ["Ne pas ouvrir la pièce jointe et vérifier l'expéditeur.", true],
+            ["L'ouvrir immédiatement.", false],
+            ["La transférer à quelqu'un.", false]
+        ]
+    },
+
+    {
+        titre: "📝 Preuve #05 — Le langage",
+
+        texte:
+        "« ACTION IMMÉDIATE REQUISE !!! VOTRE COMPTE SERA SUPPRIMÉ !!! »",
+
+        question:
+        "Pourquoi ce langage est-il suspect ?",
+
+        choix: [
+            ["Il tente de provoquer une réaction rapide par la peur.", true],
+            ["Il utilise des majuscules.", false],
+            ["Il contient des points d'exclamation.", false]
+        ]
+    },
+
+    {
+        titre: "🖥️ Preuve #06 — Page de connexion",
+
+        texte:
+        "La page demande immédiatement un nom d'utilisateur et un mot de passe.",
+
+        question:
+        "Quelle action est la plus sûre ?",
+
+        choix: [
+            ["Quitter la page et accéder au service officiel séparément.", true],
+            ["Entrer son mot de passe.", false],
+            ["Essayer un ancien mot de passe.", false]
+        ]
+    }
+
+    ]
+},
+
+
+{
+    titre: "📁 DOSSIER #0082 — LA FAUSSE LIVRAISON",
+
+    description:
+    "Un message indique qu'un colis ne peut pas être livré sans paiement ou vérification.",
+
+    preuves: [
+
+    {
+        titre: "📦 Preuve #01 — Notification",
+
+        texte:
+        "« Votre colis est retenu. Une petite somme doit être payée aujourd'hui. »",
+
+        question:
+        "Quel indice devez-vous remarquer ?",
+
+        choix: [
+            ["Une demande inattendue de paiement accompagnée d'urgence.", true],
+            ["Le message parle d'un colis.", false],
+            ["Il contient un numéro.", false]
+        ]
+    },
+
+    {
+        titre: "🔗 Preuve #02 — Adresse",
+
+        texte:
+        "Le lien semble être celui d'un service de livraison, mais le domaine est inhabituel.",
+
+        question:
+        "Que devriez-vous faire ?",
+
+        choix: [
+            ["Consulter directement le site officiel du service.", true],
+            ["Cliquer immédiatement.", false],
+            ["Entrer une carte bancaire.", false]
+        ]
+    },
+
+    {
+        titre: "📱 Preuve #03 — SMS",
+
+        texte:
+        "Le message arrive alors que vous n'attendez aucun colis.",
+
+        question:
+        "Pourquoi est-ce important ?",
+
+        choix: [
+            ["Un message inattendu doit être vérifié avant toute action.", true],
+            ["Tous les SMS sont dangereux.", false],
+            ["Un colis est toujours une arnaque.", false]
+        ]
+    },
+
+    {
+        titre: "💳 Preuve #04 — Paiement",
+
+        texte:
+        "Le message demande des informations bancaires pour une petite somme.",
+
+        question:
+        "Quelle est la meilleure réaction ?",
+
+        choix: [
+            ["Ne pas fournir les informations et vérifier auprès du transporteur.", true],
+            ["Payer immédiatement.", false],
+            ["Envoyer les informations par SMS.", false]
+        ]
+    },
+
+    {
+        titre: "⏰ Preuve #05 — Compte à rebours",
+
+        texte:
+        "« Vous avez seulement 30 minutes avant que votre colis soit retourné. »",
+
+        question:
+        "Pourquoi cette phrase est-elle suspecte ?",
+
+        choix: [
+            ["Elle crée une pression artificielle.", true],
+            ["Les colis ont parfois des délais.", false],
+            ["Le chiffre 30 est inhabituel.", false]
+        ]
+    },
+
+    {
+        titre: "🔎 Preuve #06 — Vérification",
+
+        texte:
+        "Le numéro de suivi fourni n'existe pas sur le site officiel.",
+
+        question:
+        "Que révèle cette information ?",
+
+        choix: [
+            ["C'est un indice important que le message n'est pas authentique.", true],
+            ["Le site officiel est forcément en panne.", false],
+            ["Il faut cliquer sur le lien.", false]
+        ]
+    }
+
+    ]
+},
+
+
+{
+    titre: "📁 DOSSIER #0136 — LE COMPTE DE JEU",
+
+    description:
+    "Une alerte prétend que votre compte de jeu a été compromis.",
+
+    preuves: [
+
+    {
+        titre: "🎮 Preuve #01 — Alerte",
+
+        texte:
+        "« Une activité inhabituelle a été détectée. Connectez-vous immédiatement. »",
+
+        question:
+        "Quel signal d'alarme voyez-vous ?",
+
+        choix: [
+            ["L'urgence et la menace de fermeture.", true],
+            ["Le message parle d'un jeu.", false],
+            ["Le message est court.", false]
+        ]
+    },
+
+    {
+        titre: "👤 Preuve #02 — Expéditeur",
+
+        texte:
+        "L'adresse ressemble au nom du jeu mais contient plusieurs caractères inhabituels.",
+
+        question:
+        "Que devez-vous vérifier ?",
+
+        choix: [
+            ["Le domaine exact de l'expéditeur.", true],
+            ["La couleur du logo.", false],
+            ["Le nombre de mots.", false]
+        ]
+    },
+
+    {
+        titre: "🔐 Preuve #03 — Mot de passe",
+
+        texte:
+        "La page demande votre mot de passe pour confirmer votre identité.",
+
+        question:
+        "Que faire ?",
+
+        choix: [
+            ["Ne pas saisir le mot de passe et vérifier le compte officiellement.", true],
+            ["Utiliser son mot de passe habituel.", false],
+            ["Essayer plusieurs mots de passe.", false]
+        ]
+    },
+
+    {
+        titre: "🎁 Preuve #04 — Récompense",
+
+        texte:
+        "Le message promet une récompense gratuite si vous vous connectez.",
+
+        question:
+        "Pourquoi cela peut-il être suspect ?",
+
+        choix: [
+            ["Une récompense peut servir à attirer rapidement une victime.", true],
+            ["Les récompenses sont toujours fausses.", false],
+            ["Les jeux ne proposent jamais de récompenses.", false]
+        ]
+    },
+
+    {
+        titre: "🔗 Preuve #05 — Lien",
+
+        texte:
+        "Le lien ne correspond pas exactement au domaine officiel du jeu.",
+
+        question:
+        "Quel est le meilleur choix ?",
+
+        choix: [
+            ["Ne pas cliquer et ouvrir le site officiel manuellement.", true],
+            ["Cliquer pour voir où il mène.", false],
+            ["Partager le lien.", false]
+        ]
+    },
+
+    {
+        titre: "🧩 Preuve #06 — Confirmation",
+
+        texte:
+        "Aucune alerte similaire n'apparaît dans l'application officielle.",
+
+        question:
+        "Qu'est-ce que cela suggère ?",
+
+        choix: [
+            ["Le message pourrait être une tentative d'hameçonnage.", true],
+            ["L'application officielle est incorrecte.", false],
+            ["Il faut répondre au message.", false]
+        ]
+    }
+
+    ]
+},
+
+
+{
+    titre: "📁 DOSSIER #0219 — LA FAUSSE OFFRE D'EMPLOI",
+
+    description:
+    "Une entreprise propose un emploi étonnamment avantageux.",
+
+    preuves: [
+
+    {
+        titre: "💼 Preuve #01 — L'offre",
+
+        texte:
+        "L'offre promet un salaire très élevé pour quelques heures de travail sans entretien.",
+
+        question:
+        "Quel élément mérite votre attention ?",
+
+        choix: [
+            ["Une offre exceptionnellement avantageuse sans processus normal.", true],
+            ["Le salaire est indiqué.", false],
+            ["L'offre est en français.", false]
+        ]
+    },
+
+    {
+        titre: "📧 Preuve #02 — Adresse",
+
+        texte:
+        "Le recruteur utilise une adresse gratuite qui ne correspond pas à l'entreprise.",
+
+        question:
+        "Que faut-il vérifier ?",
+
+        choix: [
+            ["Le domaine officiel de l'entreprise et l'identité du recruteur.", true],
+            ["La longueur de l'adresse.", false],
+            ["La couleur du logo.", false]
+        ]
+    },
+
+    {
+        titre: "💰 Preuve #03 — Paiement",
+
+        texte:
+        "Le candidat doit payer des frais avant de commencer.",
+
+        question:
+        "Pourquoi est-ce un signal d'alarme ?",
+
+        choix: [
+            ["Une demande de paiement inattendue doit être vérifiée.", true],
+            ["Toutes les entreprises demandent des frais.", false],
+            ["Il faut payer pour obtenir un meilleur salaire.", false]
+        ]
+    },
+
+    {
+        titre: "🪪 Preuve #04 — Informations",
+
+        texte:
+        "Le recruteur demande des documents personnels avant même un entretien.",
+
+        question:
+        "Que devriez-vous faire ?",
+
+        choix: [
+            ["Vérifier l'entreprise et le recruteur avant de transmettre des informations.", true],
+            ["Envoyer immédiatement les documents.", false],
+            ["Publier les documents.", false]
+        ]
+    },
+
+    {
+        titre: "⏰ Preuve #05 — Pression",
+
+        texte:
+        "« Vous devez accepter dans les 15 minutes. »",
+
+        question:
+        "Quel est le problème ?",
+
+        choix: [
+            ["La pression empêche de vérifier correctement l'offre.", true],
+            ["Les emplois ont parfois des délais.", false],
+            ["Le nombre 15 est suspect.", false]
+        ]
+    },
+
+    {
+        titre: "🔎 Preuve #06 — Vérification",
+
+        texte:
+        "L'offre n'apparaît nulle part sur les pages officielles de l'entreprise.",
+
+        question:
+        "Que concluez-vous ?",
+
+        choix: [
+            ["L'offre doit être considérée comme très suspecte.", true],
+            ["Il faut accepter immédiatement.", false],
+            ["L'entreprise a forcément supprimé l'offre.", false]
+        ]
+    }
+
+    ]
+},
+
+
+{
+    titre: "📁 DOSSIER #0301 — L'ALERTE BANCAIRE",
+
+    description:
+    "Une prétendue banque informe un client d'une activité inhabituelle.",
+
+    preuves: [
+
+    {
+        titre: "🏦 Preuve #01 — Alerte",
+
+        texte:
+        "« Une transaction suspecte a été détectée. Cliquez ici dans les 10 minutes. »",
+
+        question:
+        "Quel est le principal signal d'alarme ?",
+
+        choix: [
+            ["L'urgence et la demande de cliquer.", true],
+            ["Le message parle d'une transaction.", false],
+            ["La banque utilise le mot sécurité.", false]
+        ]
+    },
+
+    {
+        titre: "📧 Preuve #02 — Expéditeur",
+
+        texte:
+        "Le nom affiché semble être celui d'une banque, mais l'adresse réelle utilise un autre domaine.",
+
+        question:
+        "Que faut-il regarder ?",
+
+        choix: [
+            ["L'adresse réelle de l'expéditeur.", true],
+            ["Seulement le nom affiché.", false],
+            ["Le logo.", false]
+        ]
+    },
+
+    {
+        titre: "🔗 Preuve #03 — Connexion",
+
+        texte:
+        "Le bouton ouvre une page de connexion inconnue.",
+
+        question:
+        "Quelle est la meilleure action ?",
+
+        choix: [
+            ["Ne pas utiliser le lien et contacter la banque officiellement.", true],
+            ["Se connecter immédiatement.", false],
+            ["Entrer son numéro de carte.", false]
+        ]
+    },
+
+    {
+        titre: "🔐 Preuve #04 — Code",
+
+        texte:
+        "La page demande un code de sécurité reçu par SMS.",
+
+        question:
+        "Que devez-vous faire ?",
+
+        choix: [
+            ["Ne pas fournir le code à une page inattendue.", true],
+            ["Envoyer le code.", false],
+            ["Publier le code.", false]
+        ]
+    },
+
+    {
+        titre: "📞 Preuve #05 — Téléphone",
+
+        texte:
+        "Le message fournit un numéro pour régler immédiatement le problème.",
+
+        question:
+        "Comment vérifier ?",
+
+        choix: [
+            ["Utiliser le numéro officiel de la banque.", true],
+            ["Appeler immédiatement le numéro du message.", false],
+            ["Répondre au message.", false]
+        ]
+    },
+
+    {
+        titre: "🧠 Preuve #06 — Vérification",
+
+        texte:
+        "L'application bancaire officielle ne montre aucune alerte similaire.",
+
+        question:
+        "Que suggère cette preuve ?",
+
+        choix: [
+            ["Le message est probablement une tentative d'hameçonnage.", true],
+            ["L'application est forcément fausse.", false],
+            ["Il faut cliquer.", false]
+        ]
+    }
+
+    ]
+}
+
+];
+
+
+/* =========================================================
+   VARIABLES DU JEU
+========================================================= */
+
+let dossierActuel = null;
+
+let score = 0;
+
+let indicesTrouves = 0;
+
+let indicesRestants = 3;
+
+let preuveActuelle = null;
+
+let temps = 300;
+
+let jeuTermine = false;
+
+let minuterie;
+
+
+/* =========================================================
+   CHOISIR UN DOSSIER
+========================================================= */
+
+function selectCase(index) {
+
+    dossierActuel = dossiers[index];
+
+    document.getElementById("selection").style.display = "none";
+
+    document.getElementById("caseIntro").style.display = "block";
+
+    document.getElementById("introTitle").textContent =
+        dossierActuel.titre;
+
+    document.getElementById("introDescription").textContent =
+        dossierActuel.description;
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================================================
+   COMMENCER L'ENQUÊTE
+========================================================= */
+
+function startInvestigation() {
+
+    document.getElementById("caseIntro").style.display = "none";
+
+    document.getElementById("game").style.display = "block";
+
+    document.getElementById("gameTitle").textContent =
+        dossierActuel.titre;
+
+    document.getElementById("gameDescription").textContent =
+        dossierActuel.description;
+
+    score = 0;
+
+    indicesTrouves = 0;
+
+    indicesRestants = 3;
+
+    temps = 300;
+
+    jeuTermine = false;
+
+    document.getElementById("score").textContent = "0";
+
+    document.getElementById("found").textContent = "0/6";
+
+    document.getElementById("hints").textContent = "3";
+
+    document.getElementById("time").textContent = "05:00";
+
+    document.getElementById("report").style.display = "none";
+
+    construirePreuves();
+
+    clearInterval(minuterie);
+
+    minuterie = setInterval(compteur,1000);
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+
+/* =========================================================
+   CONSTRUIRE LES CARTES
+========================================================= */
+
+function construirePreuves() {
+
+    const grille =
+        document.getElementById("evidenceGrid");
+
+    grille.innerHTML = "";
+
+    dossierActuel.preuves.forEach((preuve,index) => {
+
+        const carte =
+            document.createElement("div");
+
+        carte.className = "evidence";
+
+        carte.id = "preuve-" + index;
+
+        carte.innerHTML = `
+
+            <h3>${preuve.titre}</h3>
+
+            <p>
+                🔍 Cliquez pour examiner cette preuve.
+            </p>
+
+            <small>
+                OUVRIR LE DOSSIER
+            </small>
+
+        `;
+
+        carte.onclick = function() {
+            ouvrirPreuve(index);
+        };
+
+        grille.appendChild(carte);
+    });
+}
+
+
+/* =========================================================
+   OUVRIR UNE PREUVE
+========================================================= */
+
+function ouvrirPreuve(index) {
+
+    preuveActuelle = index;
+
+    const preuve =
+        dossierActuel.preuves[index];
+
+    document.getElementById("modalTitle").textContent =
+        preuve.titre;
+
+    document.getElementById("modalText").textContent =
+        preuve.texte +
+        "\n\n" +
+        preuve.question;
+
+    document.getElementById("feedback").innerHTML = "";
+
+    const choix =
+        document.getElementById("choices");
+
+    choix.innerHTML = "";
+
+    preuve.choix.forEach((option) => {
+
+        const bouton =
+            document.createElement("button");
+
+        bouton.className = "choice";
+
+        bouton.textContent = option[0];
+
+        bouton.onclick = function() {
+
+            verifierReponse(
+                bouton,
+                option[1]
+            );
+
+        };
+
+        choix.appendChild(bouton);
+
+    });
+
+    document.getElementById("evidenceModal").style.display =
+        "flex";
+}
+
+
+/* =========================================================
+   VÉRIFIER LA RÉPONSE
+========================================================= */
+
+function verifierReponse(bouton,bonneReponse) {
+
+    const boutons =
+        document.querySelectorAll(".choice");
+
+    boutons.forEach(b => {
+        b.disabled = true;
+    });
+
+
+    if(bonneReponse) {
+
+        bouton.classList.add("correct");
+
+        const carte =
+            document.getElementById(
+                "preuve-" + preuveActuelle
+            );
+
+        if(!carte.classList.contains("found")) {
+
+            carte.classList.add("found");
+
+            indicesTrouves++;
+
+            score += 100;
+
+            document.getElementById("found").textContent =
+                indicesTrouves + "/6";
+
+            document.getElementById("score").textContent =
+                score;
+        }
+
+
+        document.getElementById("feedback").innerHTML = `
+
+            <div class="feedback">
+
+                🟢 <strong>INDICE CONFIRMÉ !</strong>
+
+                <br><br>
+
+                Excellent travail, détective.
+                Vous avez trouvé un élément important
+                dans cette enquête.
+
+            </div>
+        `;
+
+    }
+
+    else {
+
+        bouton.classList.add("wrong");
+
+        score = Math.max(0,score - 25);
+
+        document.getElementById("score").textContent =
+            score;
+
+        document.getElementById("feedback").innerHTML = `
+
+            <div class="feedback">
+
+                🔴 <strong>FAUSSE PISTE !</strong>
+
+                <br><br>
+
+                Ce n'est pas le meilleur indice.
+                Examinez les détails plus attentivement.
+
+            </div>
+        `;
+    }
+}
+
+
+/* =========================================================
+   FERMER LA PREUVE
+========================================================= */
+
+function closeEvidence() {
+
+    document.getElementById("evidenceModal").style.display =
+        "none";
+}
+
+
+/* =========================================================
+   INDICES
+========================================================= */
+
+function useHint() {
+
+    if(indicesRestants <= 0) {
+
+        alert(
+            "❌ Vous n'avez plus d'indices disponibles."
+        );
+
+        return;
+    }
+
+    indicesRestants--;
+
+    document.getElementById("hints").textContent =
+        indicesRestants;
+
+
+    const conseils = [
+
+        "Vérifiez attentivement l'adresse de l'expéditeur.",
+
+        "Méfiez-vous des messages qui créent un sentiment d'urgence.",
+
+        "Ne cliquez pas sur un lien inattendu. Vérifiez toujours le service officiellement."
+
+    ];
+
+
+    alert(
+        "💡 INDICE DU DÉTECTIVE\n\n" +
+        conseils[2 - indicesRestants]
+    );
+}
+
+
+/* =========================================================
+   COMPTEUR
+========================================================= */
+
+function compteur() {
+
+    if(jeuTermine) return;
+
+    temps--;
+
+    const minutes =
+        Math.floor(temps / 60);
+
+    const secondes =
+        temps % 60;
+
+    document.getElementById("time").textContent =
+        String(minutes).padStart(2,"0") +
+        ":" +
+        String(secondes).padStart(2,"0");
+
+
+    if(temps <= 0) {
+
+        clearInterval(minuterie);
+
+        alert(
+            "⏰ TEMPS ÉCOULÉ !\n\n" +
+            "Vous pouvez toujours terminer votre enquête."
+        );
+    }
+}
+
+
+/* =========================================================
+   VERDICT
+========================================================= */
+
+function showVerdict() {
+
+    if(indicesTrouves < 3) {
+
+        alert(
+
+            "🔎 Vous n'avez pas encore assez d'indices.\n\n" +
+
+            "Examinez au moins 3 preuves avant de rendre votre verdict."
+
+        );
+
+        return;
+    }
+
+    document.getElementById("verdictModal").style.display =
+        "flex";
+}
+
+
+/* =========================================================
+   TERMINER L'AFFAIRE
+========================================================= */
+
+function finishCase(bonneConclusion) {
+
+    jeuTermine = true;
+
+    clearInterval(minuterie);
+
+    document.getElementById("verdictModal").style.display =
+        "none";
+
+
+    let etoiles;
+
+    let message;
+
+
+    if(bonneConclusion && score >= 500) {
+
+        etoiles = "★★★★★";
+
+        message =
+            "🕵️‍♀️ DÉTECTIVE EXPERT ! " +
+            "Vous avez brillamment analysé les preuves " +
+            "et identifié la tentative d'hameçonnage.";
+
+    }
+
+    else if(bonneConclusion && score >= 300) {
+
+        etoiles = "★★★★☆";
+
+        message =
+            "🔎 DÉTECTIVE CONFIRMÉ ! " +
+            "Très bon travail. Vous avez trouvé plusieurs " +
+            "indices importants.";
+
+    }
+
+    else if(bonneConclusion) {
+
+        etoiles = "★★★☆☆";
+
+        message =
+            "🕵️ DÉTECTIVE JUNIOR ! " +
+            "Vous avez résolu l'affaire. Continuez à pratiquer.";
+
+    }
+
+    else {
+
+        etoiles = "★★☆☆☆";
+
+        message =
+            "📁 AFFAIRE À RÉEXAMINER. " +
+            "Les indices indiquaient une tentative d'hameçonnage.";
+    }
+
+
+    document.getElementById("rating").textContent =
+        etoiles;
+
+
+    document.getElementById("finalText").textContent =
+
+        message +
+
+        " Votre score final est de " +
+
+        score +
+
+        " points.";
+
+
+    const pourcentage =
+        Math.min(
+            100,
+            Math.round(
+                (score / 600) * 100
+            )
+        );
+
+
+    document.getElementById("report").style.display =
+        "block";
+
+
+    setTimeout(function() {
+
+        document.getElementById("progress").style.width =
+            pourcentage + "%";
+
+    },300);
+
+
+    document.getElementById("report").scrollIntoView({
+
+        behavior:"smooth"
+
+    });
+}
+
+
+/* =========================================================
+   RETOUR AUX DOSSIERS
+========================================================= */
+
+function backToSelection() {
+
+    clearInterval(minuterie);
+
+    document.getElementById("game").style.display =
+        "none";
+
+    document.getElementById("caseIntro").style.display =
+        "none";
+
+    document.getElementById("selection").style.display =
+        "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
 ```
+
+
+/* =========================================================
+   RETOUR AUX DOSSIERS
+========================================================= */
+
+function backToSelection() {
+
+    clearInterval(minuterie);
+
+    document.getElementById("game").style.display =
+        "none";
+
+    document.getElementById("caseIntro").style.display =
+        "none";
+
+    document.getElementById("selection").style.display =
+        "block";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+</script>
+
+</body>
+</html>
+```
+
 
