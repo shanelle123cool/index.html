@@ -1,443 +1,623 @@
 ```html
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Phishing Files — Case #0047</title>
+<title>Les Dossiers de l'Hameçonnage</title>
 
 <style>
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background:
-            radial-gradient(circle at top, #252525 0%, #0b0b0b 55%, #050505 100%);
-        color: #f5f5f5;
-        min-height: 100vh;
-    }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top, #252525 0%, #0b0b0b 55%, #030303 100%);
+    color: white;
+    min-height: 100vh;
+}
 
-    header {
-        border-bottom: 2px solid #c40000;
-        background: rgba(0,0,0,.85);
-        padding: 22px;
-        text-align: center;
-        box-shadow: 0 0 25px rgba(190,0,0,.25);
-    }
+/* HEADER */
+header {
+    background: rgba(0,0,0,.92);
+    border-bottom: 2px solid #d00000;
+    padding: 25px 15px;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(220,0,0,.25);
+}
 
-    header h1 {
-        color: #e00000;
-        letter-spacing: 4px;
-        text-transform: uppercase;
-        font-size: 30px;
-    }
+header h1 {
+    color: #e00000;
+    font-size: 34px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+}
 
-    header p {
-        color: #aaa;
-        margin-top: 8px;
-        letter-spacing: 2px;
-    }
+header p {
+    color: #aaa;
+    margin-top: 8px;
+    letter-spacing: 2px;
+}
 
-    .container {
-        width: min(1200px, 94%);
-        margin: 30px auto;
-    }
+.creators {
+    color: #fff;
+    margin-top: 12px;
+    font-weight: bold;
+}
 
-    .case-header {
-        background: linear-gradient(145deg,#171717,#0c0c0c);
-        border: 1px solid #333;
-        border-left: 5px solid #d00000;
-        padding: 25px;
-        border-radius: 12px;
-        margin-bottom: 20px;
-    }
+.creators span {
+    color: #e00000;
+}
 
-    .case-header h2 {
-        color: #fff;
-        margin-bottom: 12px;
-    }
+/* MAIN */
+.container {
+    width: min(1200px, 94%);
+    margin: 30px auto;
+}
 
-    .status {
-        display: inline-block;
-        background: #620000;
-        border: 1px solid #e00000;
-        color: #fff;
-        padding: 7px 13px;
-        border-radius: 20px;
-        font-size: 13px;
-        margin-top: 10px;
-    }
+.intro {
+    text-align: center;
+    margin-bottom: 30px;
+}
 
-    .stats {
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        gap: 12px;
-        margin-bottom: 25px;
-    }
+.intro h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
 
-    .stat {
-        background: #111;
-        border: 1px solid #333;
-        border-radius: 10px;
-        padding: 15px;
-        text-align: center;
-    }
+.intro p {
+    color: #aaa;
+    line-height: 1.6;
+}
 
-    .stat strong {
-        display: block;
-        color: #e00000;
-        font-size: 24px;
-        margin-top: 5px;
-    }
+/* CASE SELECTION */
+.case-selection {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+}
 
-    .board {
-        position: relative;
-        min-height: 500px;
-        background-color: #202020;
-        background-image:
-            linear-gradient(#292929 1px, transparent 1px),
-            linear-gradient(90deg,#292929 1px,transparent 1px);
-        background-size: 35px 35px;
-        border: 2px solid #444;
-        border-radius: 15px;
-        padding: 25px;
-        overflow: hidden;
-        margin-bottom: 25px;
-    }
+.case-card {
+    background: linear-gradient(145deg, #191919, #0c0c0c);
+    border: 1px solid #3a3a3a;
+    border-top: 4px solid #b00000;
+    border-radius: 12px;
+    padding: 22px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: .25s;
+    min-height: 230px;
+    position: relative;
+    overflow: hidden;
+}
 
-    .board-title {
-        text-align: center;
-        color: #aaa;
-        letter-spacing: 3px;
-        margin-bottom: 20px;
+.case-card:hover {
+    transform: translateY(-8px);
+    border-color: #e00000;
+    box-shadow: 0 0 30px rgba(220,0,0,.25);
+}
+
+.case-number {
+    color: #777;
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.case-icon {
+    font-size: 45px;
+    margin: 15px 0;
+}
+
+.case-card h3 {
+    margin-bottom: 10px;
+}
+
+.case-card p {
+    color: #999;
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+.difficulty {
+    color: #e00000;
+    margin-top: 15px;
+}
+
+/* INVESTIGATION */
+#investigation {
+    display: none;
+}
+
+.back-button {
+    margin-bottom: 20px;
+}
+
+button {
+    border: 1px solid #d00000;
+    background: #700000;
+    color: white;
+    padding: 12px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .2s;
+}
+
+button:hover {
+    background: #a00000;
+    transform: translateY(-2px);
+    box-shadow: 0 0 15px rgba(220,0,0,.35);
+}
+
+.secondary {
+    background: #181818;
+    border-color: #555;
+}
+
+.case-header {
+    background: linear-gradient(145deg,#181818,#0c0c0c);
+    border: 1px solid #333;
+    border-left: 5px solid #d00000;
+    border-radius: 12px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.case-header h2 {
+    margin-bottom: 12px;
+}
+
+.case-header p {
+    color: #bbb;
+    line-height: 1.6;
+}
+
+.status {
+    display: inline-block;
+    margin-top: 15px;
+    background: #600000;
+    border: 1px solid #e00000;
+    padding: 7px 13px;
+    border-radius: 20px;
+    font-size: 12px;
+}
+
+/* STATS */
+.stats {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+}
+
+.stat {
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    color: #999;
+}
+
+.stat strong {
+    display: block;
+    color: #e00000;
+    font-size: 24px;
+    margin-top: 5px;
+}
+
+/* BOARD */
+.board {
+    min-height: 450px;
+    background-color: #202020;
+    background-image:
+        linear-gradient(#292929 1px, transparent 1px),
+        linear-gradient(90deg,#292929 1px,transparent 1px);
+    background-size: 35px 35px;
+    border: 2px solid #444;
+    border-radius: 15px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+.board-title {
+    text-align: center;
+    color: #aaa;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.evidence-grid {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 18px;
+}
+
+.evidence {
+    background: #f4f0df;
+    color: #171717;
+    border-radius: 5px;
+    padding: 20px;
+    min-height: 150px;
+    cursor: pointer;
+    transform: rotate(-1deg);
+    box-shadow: 4px 7px 15px rgba(0,0,0,.5);
+    transition: .2s;
+    position: relative;
+}
+
+.evidence:nth-child(even) {
+    transform: rotate(1.5deg);
+}
+
+.evidence:hover {
+    transform: scale(1.04) rotate(0deg);
+    box-shadow: 0 0 25px rgba(255,0,0,.35);
+}
+
+.evidence h3 {
+    margin-bottom: 10px;
+}
+
+.evidence small {
+    color: #555;
+}
+
+.pin {
+    width: 12px;
+    height: 12px;
+    background: #d00000;
+    border-radius: 50%;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 8px red;
+}
+
+.found {
+    opacity: .55;
+    filter: grayscale(.5);
+}
+
+/* BUTTONS */
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.timer {
+    text-align: center;
+    color: #ff4d4d;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 15px;
+}
+
+/* MODALS */
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.88);
+    z-index: 20;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.modal-content {
+    width: min(680px,100%);
+    max-height: 90vh;
+    overflow-y: auto;
+    background: #151515;
+    border: 2px solid #b00000;
+    border-radius: 14px;
+    padding: 28px;
+    box-shadow: 0 0 50px rgba(200,0,0,.3);
+}
+
+.modal-content h2 {
+    color: #e00000;
+    margin-bottom: 15px;
+}
+
+.modal-content p {
+    color: #ddd;
+    line-height: 1.7;
+    margin-bottom: 18px;
+    white-space: pre-line;
+}
+
+.choice {
+    width: 100%;
+    text-align: left;
+    margin: 7px 0;
+    background: #202020;
+    border: 1px solid #444;
+}
+
+.choice:hover {
+    border-color: #d00000;
+}
+
+.correct {
+    border-color: #00a83b !important;
+    background: #073d1d !important;
+}
+
+.wrong {
+    border-color: #d00000 !important;
+    background: #450808 !important;
+}
+
+.feedback {
+    margin-top: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    background: #101010;
+    border: 1px solid #444;
+}
+
+/* REPORT */
+.report {
+    display: none;
+    background: #101010;
+    border: 2px solid #555;
+    border-radius: 14px;
+    padding: 30px;
+    margin-top: 25px;
+}
+
+.report h2 {
+    text-align: center;
+    color: #e00000;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+}
+
+.rating {
+    text-align: center;
+    font-size: 35px;
+    margin: 15px;
+}
+
+.report p {
+    color: #bbb;
+    line-height: 1.7;
+    margin: 12px 0;
+}
+
+.progress {
+    height: 12px;
+    background: #292929;
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 10px 0 20px;
+}
+
+.progress-bar {
+    height: 100%;
+    background: #d00000;
+    width: 0%;
+    transition: 1s;
+}
+
+.footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 30px;
+    border-top: 1px solid #333;
+    color: #777;
+}
+
+.footer strong {
+    color: #e00000;
+}
+
+/* RESPONSIVE */
+@media(max-width:950px) {
+    .case-selection {
+        grid-template-columns: repeat(2,1fr);
     }
 
     .evidence-grid {
-        display: grid;
-        grid-template-columns: repeat(3,1fr);
-        gap: 18px;
-        position: relative;
-        z-index: 2;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media(max-width:650px) {
+    header h1 {
+        font-size: 23px;
     }
 
-    .evidence {
-        background: #f4f0df;
-        color: #171717;
-        border-radius: 5px;
-        padding: 20px;
-        min-height: 150px;
-        cursor: pointer;
-        transform: rotate(-1deg);
-        box-shadow: 4px 7px 15px rgba(0,0,0,.5);
-        transition: .2s;
-        position: relative;
+    .case-selection,
+    .evidence-grid,
+    .stats {
+        grid-template-columns: 1fr;
     }
-
-    .evidence:nth-child(even) {
-        transform: rotate(1.5deg);
-    }
-
-    .evidence:hover {
-        transform: scale(1.04) rotate(0deg);
-        box-shadow: 0 0 25px rgba(255,0,0,.35);
-    }
-
-    .evidence h3 {
-        margin-bottom: 10px;
-        font-size: 17px;
-    }
-
-    .evidence small {
-        color: #555;
-    }
-
-    .pin {
-        width: 12px;
-        height: 12px;
-        background: #d00000;
-        border-radius: 50%;
-        position: absolute;
-        top: 8px;
-        left: 50%;
-        transform: translateX(-50%);
-        box-shadow: 0 0 8px red;
-    }
-
-    .buttons {
-        display: flex;
-        justify-content: center;
-        gap: 12px;
-        flex-wrap: wrap;
-        margin: 20px 0;
-    }
-
-    button {
-        border: 1px solid #d00000;
-        background: #700000;
-        color: white;
-        padding: 12px 20px;
-        border-radius: 7px;
-        cursor: pointer;
-        font-weight: bold;
-        transition: .2s;
-    }
-
-    button:hover {
-        background: #a00000;
-        transform: translateY(-2px);
-        box-shadow: 0 0 15px rgba(220,0,0,.35);
-    }
-
-    .secondary {
-        background: #181818;
-        border-color: #555;
-    }
-
-    .timer {
-        text-align: center;
-        font-size: 20px;
-        margin: 15px;
-        color: #ff4d4d;
-        font-weight: bold;
-    }
-
-    .modal {
-        display: none;
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,.85);
-        z-index: 10;
-        justify-content: center;
-        align-items: center;
-        padding: 20px;
-    }
-
-    .modal-content {
-        width: min(650px,100%);
-        background: #151515;
-        border: 2px solid #b00000;
-        border-radius: 14px;
-        padding: 28px;
-        box-shadow: 0 0 50px rgba(200,0,0,.3);
-    }
-
-    .modal-content h2 {
-        color: #e00000;
-        margin-bottom: 15px;
-    }
-
-    .modal-content p {
-        color: #ddd;
-        line-height: 1.6;
-        margin-bottom: 18px;
-    }
-
-    .choice {
-        width: 100%;
-        text-align: left;
-        margin: 7px 0;
-        background: #202020;
-        border: 1px solid #444;
-    }
-
-    .choice:hover {
-        border-color: #d00000;
-    }
-
-    .correct {
-        border-color: #00a83b !important;
-        background: #073d1d !important;
-    }
-
-    .wrong {
-        border-color: #d00000 !important;
-        background: #450808 !important;
-    }
-
-    .found {
-        opacity: .55;
-        filter: grayscale(.5);
-    }
-
-    .report {
-        display: none;
-        background: #101010;
-        border: 2px solid #555;
-        border-radius: 14px;
-        padding: 30px;
-        margin-top: 25px;
-    }
-
-    .report h2 {
-        text-align: center;
-        color: #e00000;
-        letter-spacing: 3px;
-        margin-bottom: 25px;
-    }
-
-    .rating {
-        text-align: center;
-        font-size: 34px;
-        margin: 15px;
-    }
-
-    .progress {
-        height: 12px;
-        background: #292929;
-        border-radius: 10px;
-        overflow: hidden;
-        margin: 10px 0 20px;
-    }
-
-    .progress-bar {
-        height: 100%;
-        background: #d00000;
-        width: 0%;
-        transition: 1s;
-    }
-
-    @media(max-width:800px) {
-        .stats,
-        .evidence-grid {
-            grid-template-columns: 1fr;
-        }
-
-        header h1 {
-            font-size: 23px;
-        }
-    }
+}
 </style>
 </head>
 
 <body>
 
 <header>
-    <h1>🕵️ THE PHISHING FILES</h1>
-    <p>CYBER INVESTIGATION UNIT</p>
+    <h1>🕵️ LES DOSSIERS DE L'HAMEÇONNAGE</h1>
+    <p>UNITÉ D'INVESTIGATION CYBERNÉTIQUE</p>
+    <div class="creators">
+        Fait par <span>Kaylee et Shanelle</span>
+    </div>
 </header>
 
 <div class="container">
 
-    <section class="case-header">
-        <h2>📁 CASE #0047 — THE URGENT MESSAGE</h2>
+<!-- CASE SELECTION -->
+<section id="caseSelection">
+
+    <div class="intro">
+        <h2>📁 Choisissez votre enquête</h2>
         <p>
-            A suspicious security message has been reported.
-            Your mission is to investigate the evidence and determine
-            whether the message is legitimate or a phishing attempt.
+            Cinq dossiers. Cinq enquêtes. À vous de trouver les indices,
+            analyser les preuves et résoudre chaque affaire.
         </p>
-        <span class="status">🔴 ACTIVE INVESTIGATION</span>
-    </section>
+    </div>
+
+    <div class="case-selection">
+
+        <div class="case-card" onclick="startCase(0)">
+            <div class="case-number">DOSSIER #0047</div>
+            <div class="case-icon">📧</div>
+            <h3>Le courriel urgent</h3>
+            <p>Un message affirme que votre compte est en danger.</p>
+            <div class="difficulty">★★★★☆</div>
+        </div>
+
+        <div class="case-card" onclick="startCase(1)">
+            <div class="case-number">DOSSIER #0082</div>
+            <div class="case-icon">📦</div>
+            <h3>La fausse livraison</h3>
+            <p>Un colis inattendu serait bloqué et nécessite une action.</p>
+            <div class="difficulty">★★★☆☆</div>
+        </div>
+
+        <div class="case-card" onclick="startCase(2)">
+            <div class="case-number">DOSSIER #0136</div>
+            <div class="case-icon">🎮</div>
+            <h3>Le compte de jeu</h3>
+            <p>Un joueur reçoit une étrange alerte concernant son compte.</p>
+            <div class="difficulty">★★★★☆</div>
+        </div>
+
+        <div class="case-card" onclick="startCase(3)">
+            <div class="case-number">DOSSIER #0219</div>
+            <div class="case-icon">💼</div>
+            <h3>La fausse offre d'emploi</h3>
+            <p>Une entreprise propose un emploi qui semble trop beau pour être vrai.</p>
+            <div class="difficulty">★★★★★</div>
+        </div>
+
+        <div class="case-card" onclick="startCase(4)">
+            <div class="case-number">DOSSIER #0301</div>
+            <div class="case-icon">🏦</div>
+            <h3>L'alerte bancaire</h3>
+            <p>Une prétendue banque demande une vérification urgente.</p>
+            <div class="difficulty">★★★★★</div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INVESTIGATION -->
+<section id="investigation">
+
+    <div class="back-button">
+        <button class="secondary" onclick="backToCases()">
+            ← Retour aux dossiers
+        </button>
+    </div>
+
+    <div class="case-header">
+        <h2 id="caseTitle"></h2>
+        <p id="caseDescription"></p>
+        <span class="status">🔴 ENQUÊTE EN COURS</span>
+    </div>
 
     <div class="stats">
+
         <div class="stat">
-            Evidence Found
+            Indices trouvés
             <strong id="found">0/6</strong>
         </div>
 
         <div class="stat">
-            Detective Score
+            Score
             <strong id="score">0</strong>
         </div>
 
         <div class="stat">
-            Hints
+            Indices
             <strong id="hints">3</strong>
         </div>
 
         <div class="stat">
-            Time
+            Temps
             <strong id="time">05:00</strong>
         </div>
+
     </div>
 
     <div class="timer">
-        ⚠️ Investigation timer active
+        ⏱️ Temps restant pour l'enquête
     </div>
 
     <section class="board">
 
-        <h2 class="board-title">🔎 EVIDENCE BOARD</h2>
+        <h2 class="board-title">🔎 TABLEAU DES PREUVES</h2>
 
-        <div class="evidence-grid">
+        <div class="evidence-grid" id="evidenceGrid"></div>
 
-            <div class="evidence" onclick="openEvidence(0)">
-                <div class="pin"></div>
-                <h3>📧 Evidence #01</h3>
-                <p>Suspicious Email</p>
-                <small>Click to inspect</small>
-            </div>
-
-            <div class="evidence" onclick="openEvidence(1)">
-                <div class="pin"></div>
-                <h3>👤 Evidence #02</h3>
-                <p>Sender Information</p>
-                <small>Click to inspect</small>
-            </div>
-
-            <div class="evidence" onclick="openEvidence(2)">
-                <div class="pin"></div>
-                <h3>🔗 Evidence #03</h3>
-                <p>Suspicious Link</p>
-                <small>Click to inspect</small>
-            </div>
-
-            <div class="evidence" onclick="openEvidence(3)">
-                <div class="pin"></div>
-                <h3>📎 Evidence #04</h3>
-                <p>Attachment</p>
-                <small>Click to inspect</small>
-            </div>
-
-            <div class="evidence" onclick="openEvidence(4)">
-                <div class="pin"></div>
-                <h3>📝 Evidence #05</h3>
-                <p>Message Language</p>
-                <small>Click to inspect</small>
-            </div>
-
-            <div class="evidence" onclick="openEvidence(5)">
-                <div class="pin"></div>
-                <h3>🖥️ Evidence #06</h3>
-                <p>Fake Security Page</p>
-                <small>Click to inspect</small>
-            </div>
-
-        </div>
     </section>
 
     <div class="buttons">
-        <button onclick="useHint()">💡 Detective Hint</button>
-        <button onclick="makeConclusion()">🧠 Make Your Conclusion</button>
-        <button class="secondary" onclick="resetCase()">🔄 Restart Case</button>
+
+        <button onclick="useHint()">
+            💡 Demander un indice
+        </button>
+
+        <button onclick="makeConclusion()">
+            🧠 Rendre mon verdict
+        </button>
+
     </div>
 
     <section id="report" class="report">
-        <h2>🔴 CASE CLOSED</h2>
+
+        <h2>🔴 DOSSIER CLASSÉ</h2>
 
         <div class="rating" id="rating"></div>
 
         <p id="finalMessage"></p>
 
-        <h3>Investigation Progress</h3>
+        <p>
+            <strong>Progression de l'enquête :</strong>
+        </p>
+
         <div class="progress">
             <div class="progress-bar" id="progress"></div>
         </div>
 
         <p>
-            You investigated the evidence and learned how several
-            phishing warning signs can be identified before interacting
-            with a suspicious message.
+            Vous avez analysé les preuves de ce dossier.
+            Continuez à enquêter sur les autres affaires pour améliorer
+            vos compétences de détection de l'hameçonnage.
         </p>
+
+        <div class="buttons">
+            <button onclick="backToCases()">
+                📁 Choisir une autre affaire
+            </button>
+        </div>
+
     </section>
+
+</section>
 
 </div>
 
-<!-- Evidence Modal -->
+
+<!-- EVIDENCE MODAL -->
 <div class="modal" id="evidenceModal">
+
     <div class="modal-content">
 
         <h2 id="modalTitle"></h2>
@@ -446,338 +626,128 @@
 
         <div id="choices"></div>
 
+        <div id="feedback"></div>
+
         <div class="buttons">
-            <button class="secondary" onclick="closeModal()">Close Evidence</button>
+            <button class="secondary" onclick="closeModal()">
+                Fermer la preuve
+            </button>
         </div>
 
     </div>
+
 </div>
 
-<!-- Conclusion Modal -->
+
+<!-- CONCLUSION MODAL -->
 <div class="modal" id="conclusionModal">
+
     <div class="modal-content">
 
-        <h2>🧠 DETECTIVE'S CONCLUSION</h2>
+        <h2>🧠 VERDICT DU DÉTECTIVE</h2>
 
         <p>
-            After reviewing the evidence, what is your conclusion?
+            Après avoir examiné les preuves, quel est votre verdict ?
         </p>
 
         <button class="choice" onclick="finishCase(true)">
-            🚨 This is a phishing attempt
+            🚨 C'est une tentative d'hameçonnage
         </button>
 
         <button class="choice" onclick="finishCase(false)">
-            ✅ This is a legitimate message
+            ✅ C'est un message légitime
         </button>
 
         <button class="choice" onclick="finishCase(false)">
-            🤔 There is not enough evidence
+            🤔 Il n'y a pas assez de preuves
         </button>
 
     </div>
+
 </div>
+
+
+<footer class="footer">
+    🕵️ Les Dossiers de l'Hameçonnage
+    <br>
+    <strong>Fait par Kaylee et Shanelle</strong>
+    <br><br>
+    Projet éducatif de sensibilisation à la cybersécurité.
+</footer>
+
 
 <script>
 
-const evidence = [
+/* =========================================================
+   LES 5 DOSSIERS
+========================================================= */
+
+const cases = [
+
+{
+    title: "📁 DOSSIER #0047 — LE COURRIEL URGENT",
+
+    description:
+    "Un message prétend que votre compte est en danger et vous demande d'agir immédiatement.",
+
+    evidence: [
 
     {
-        title: "📧 Evidence #01 — Suspicious Email",
+        title:"📧 Preuve #01 — Le courriel",
         text:
-        "The message claims that your account has a serious security problem and demands immediate action.",
-        question:
-        "What is the biggest warning sign?",
-        answers: [
-            ["The message creates urgency and pressure.", true],
-            ["The message contains a greeting.", false],
-            ["The message is short.", false]
+        "Le message affirme : « Votre compte sera suspendu dans 10 minutes. Vérifiez immédiatement votre identité. »",
+
+        question:"Quel est le principal signal d'alarme ?",
+
+        answers:[
+            ["Le message utilise la peur et l'urgence.",true],
+            ["Le message contient une date.",false],
+            ["Le message possède un objet.",false]
         ]
     },
 
     {
-        title: "👤 Evidence #02 — Sender Information",
+        title:"👤 Preuve #02 — L'expéditeur",
         text:
-        "The sender is listed as: security@paypaI-support.example\n\nNotice the unusual spelling in the domain.",
-        question:
-        "What should the detective notice?",
-        answers: [
-            ["The domain appears designed to imitate a real organization.", true],
-            ["The sender uses lowercase letters.", false],
-            ["The address contains an @ symbol.", false]
+        "Expéditeur : securite@paypaI-support.example\n\nRegardez attentivement le nom du domaine.",
+
+        question:"Que remarquez-vous ?",
+
+        answers:[
+            ["Le domaine semble imiter une véritable organisation.",true],
+            ["L'adresse contient une arobase.",false],
+            ["Le nom commence par une minuscule.",false]
         ]
     },
 
     {
-        title: "🔗 Evidence #03 — Suspicious Link",
+        title:"🔗 Preuve #03 — Le lien",
         text:
-        "The message contains a button asking the recipient to verify their account.",
-        question:
-        "What should you do before clicking an unexpected link?",
-        answers: [
-            ["Verify the destination independently.", true],
-            ["Click immediately because the message is urgent.", false],
-            ["Enter your password to see if it works.", false]
+        "Le bouton « Vérifier mon compte » mène vers une adresse inconnue.",
+
+        question:"Que devriez-vous faire ?",
+
+        answers:[
+            ["Vérifier la destination sans cliquer et utiliser le site officiel séparément.",true],
+            ["Cliquer rapidement puisque le message est urgent.",false],
+            ["Entrer son mot de passe pour tester.",false]
         ]
     },
 
     {
-        title: "📎 Evidence #04 — Attachment",
+        title:"📎 Preuve #04 — Pièce jointe",
         text:
-        "An unexpected attachment is included with the security warning.",
-        question:
-        "What is the safest response?",
-        answers: [
-            ["Do not open unexpected attachments and verify the sender.", true],
-            ["Open it quickly before it expires.", false],
-            ["Forward it to friends to ask what they think.", false]
+        "Une pièce jointe inattendue accompagne le message.",
+
+        question:"Quelle est la meilleure réaction ?",
+
+        answers:[
+            ["Ne pas ouvrir la pièce jointe et vérifier l'expéditeur.",true],
+            ["L'ouvrir immédiatement.",false],
+            ["La transférer à quelqu'un.",false]
         ]
     },
 
     {
-        title: "📝 Evidence #05 — Message Language",
-        text:
-        "The message says: \"YOUR ACCOUNT WILL BE CLOSED IN 10 MINUTES! ACT NOW!\"",
-        question:
-        "Why is this suspicious?",
-        answers: [
-            ["It uses fear and urgency to pressure the recipient.", true],
-            ["It uses capital letters.", false],
-            ["It has an exclamation mark.", false]
-        ]
-    },
-
-    {
-        title: "🖥️ Evidence #06 — Fake Security Page",
-        text:
-        "The linked page asks for a username and password immediately.",
-        question:
-        "What is the safest action?",
-        answers: [
-            ["Leave the page and access the official service independently.", true],
-            ["Enter your password to test the page.", false],
-            ["Use the same password as another account.", false]
-        ]
-    }
-
-];
-
-let found = 0;
-let score = 0;
-let hints = 3;
-let currentEvidence = null;
-let seconds = 300;
-let finished = false;
-
-const timer = setInterval(() => {
-
-    if (finished) return;
-
-    seconds--;
-
-    let minutes = Math.floor(seconds / 60);
-    let secs = seconds % 60;
-
-    document.getElementById("time").textContent =
-        String(minutes).padStart(2,"0") + ":" +
-        String(secs).padStart(2,"0");
-
-    if(seconds <= 0) {
-        clearInterval(timer);
-        alert("⏰ TIME'S UP! The case can still be reviewed.");
-    }
-
-},1000);
-
-
-function openEvidence(index) {
-
-    currentEvidence = index;
-
-    const item = evidence[index];
-
-    document.getElementById("modalTitle").textContent = item.title;
-    document.getElementById("modalText").textContent =
-        item.text + "\n\n" + item.question;
-
-    const choices = document.getElementById("choices");
-
-    choices.innerHTML = "";
-
-    item.answers.forEach((answer) => {
-
-        const button = document.createElement("button");
-
-        button.className = "choice";
-
-        button.textContent = answer[0];
-
-        button.onclick = () => checkAnswer(button, answer[1]);
-
-        choices.appendChild(button);
-
-    });
-
-    document.getElementById("evidenceModal").style.display = "flex";
-}
-
-
-function checkAnswer(button, correct) {
-
-    const buttons =
-        document.querySelectorAll("#choices .choice");
-
-    buttons.forEach(btn => btn.disabled = true);
-
-    if(correct) {
-
-        button.classList.add("correct");
-
-        score += 100;
-
-        if(!document
-            .querySelectorAll(".evidence")[currentEvidence]
-            .classList.contains("found")) {
-
-            found++;
-
-            document
-                .querySelectorAll(".evidence")[currentEvidence]
-                .classList.add("found");
-        }
-
-        document.getElementById("score").textContent = score;
-        document.getElementById("found").textContent = found + "/6";
-
-    } else {
-
-        button.classList.add("wrong");
-
-        score = Math.max(0, score - 25);
-
-        document.getElementById("score").textContent = score;
-    }
-
-}
-
-
-function closeModal() {
-    document.getElementById("evidenceModal").style.display = "none";
-}
-
-
-function useHint() {
-
-    if(hints <= 0) {
-
-        alert("You have used all your detective hints.");
-
-        return;
-    }
-
-    hints--;
-
-    document.getElementById("hints").textContent = hints;
-
-    const messages = [
-
-        "💡 Look carefully at the sender's domain.",
-        "💡 Phishing messages often create urgency or fear.",
-        "💡 Never trust an unexpected link just because it looks professional."
-
-    ];
-
-    alert(messages[3 - hints - 1] || messages[0]);
-}
-
-
-function makeConclusion() {
-
-    if(found < 3) {
-
-        alert(
-            "🔎 You need to investigate more evidence first.\n\n" +
-            "Try to find at least 3 clues."
-        );
-
-        return;
-    }
-
-    document.getElementById("conclusionModal").style.display = "flex";
-}
-
-
-function finishCase(correct) {
-
-    finished = true;
-
-    document.getElementById("conclusionModal").style.display = "none";
-
-    const report = document.getElementById("report");
-
-    report.style.display = "block";
-
-    const accuracy = Math.round((score / 600) * 100);
-
-    let rating;
-    let message;
-
-    if(correct && score >= 500) {
-
-        rating = "★★★★★";
-        message =
-            "🕵️ ELITE DETECTIVE — Excellent investigation! " +
-            "You identified the major phishing warning signs.";
-
-    } else if(correct && score >= 300) {
-
-        rating = "★★★★☆";
-        message =
-            "🔎 SKILLED DETECTIVE — Good work! " +
-            "You successfully identified the phishing attempt.";
-
-    } else if(correct) {
-
-        rating = "★★★☆☆";
-        message =
-            "🕵️ JUNIOR DETECTIVE — Case solved! " +
-            "Keep practicing your phishing detection skills.";
-
-    } else {
-
-        rating = "★★☆☆☆";
-        message =
-            "📁 CASE NEEDS REVIEW — The evidence suggested a phishing attempt. " +
-            "Review the clues and try again.";
-
-    }
-
-    document.getElementById("rating").textContent = rating;
-
-    document.getElementById("finalMessage").textContent =
-        message + " Final score: " + score + " points.";
-
-    setTimeout(() => {
-
-        document.getElementById("progress").style.width =
-            Math.min(100, accuracy) + "%";
-
-    },200);
-
-    report.scrollIntoView({
-        behavior: "smooth"
-    });
-}
-
-
-function resetCase() {
-
-    location.reload();
-
-}
-
-</script>
-
-</body>
-</html>
 ```
+
